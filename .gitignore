@@ -1,0 +1,27 @@
+# This repo tracks only the workspace shell: the docs that tell you what belongs here
+# and how to assemble it. Everything of substance lives in its own repo or is a local
+# artefact.
+
+# ─── Nested project repos: cloned separately, never nested inside this one ───
+# Listed here so git treats them as absent rather than turning them into gitlinks
+# (an accidental `git add wh11ed` would otherwise create a broken submodule ref).
+# See README.md for the clone commands.
+/wh11ed/
+/wh11ed-api/
+/wh-glossary/
+
+# ─── Sources: the folder is tracked, its contents never are ───
+# ~5.5 GB of PDFs, images and archives that can't and shouldn't go into git.
+# sources/README.md stays tracked so the directory (and its purpose) survives a clone.
+/sources/*
+!/sources/README.md
+
+# ─── Local tooling ───
+.idea/
+.vscode/
+.claude/settings.local.json
+
+# ─── OS noise ───
+.DS_Store
+Thumbs.db
+desktop.ini
