@@ -9,6 +9,7 @@
 /wh11ed/
 /wh11ed-api/
 /wh-glossary/
+/wh40k-appdata/
 
 # ─── Sources: the folder is tracked, its contents never are ───
 # ~5.5 GB of PDFs, images and archives that can't and shouldn't go into git.
