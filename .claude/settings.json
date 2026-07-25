@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(wh-glossary/terms/**)",
+      "Read(wh-glossary/**/*.docx)",
+      "Read(sources/**)",
+      "Read(**/node_modules/**)",
+      "Read(**/dist/**)",
+      "Read(**/.vite/**)",
+      "Read(**/coverage/**)",
+      "Glob(**/node_modules/**)",
+      "Grep(**/node_modules/**)"
+    ]
+  }
+}
