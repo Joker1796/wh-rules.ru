@@ -8,8 +8,8 @@
       "Read(**/dist/**)",
       "Read(**/.vite/**)",
       "Read(**/coverage/**)",
-      "Glob(**/node_modules/**)",
-      "Grep(**/node_modules/**)"
+      "Read(**/node_modules/**)",
+      "Read(**/node_modules/**)"
     ]
   }
 }
