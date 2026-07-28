@@ -3,7 +3,6 @@
     "deny": [
       "Read(wh-glossary/terms/**)",
       "Read(wh-glossary/**/*.docx)",
-      "Read(sources/**)",
       "Read(**/node_modules/**)",
       "Read(**/dist/**)",
       "Read(**/.vite/**)",
