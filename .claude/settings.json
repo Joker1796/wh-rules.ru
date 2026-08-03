@@ -1,7 +1,6 @@
 {
   "permissions": {
     "deny": [
-      "Read(wh-glossary/terms/**)",
       "Read(wh-glossary/**/*.docx)",
       "Read(**/node_modules/**)",
       "Read(**/dist/**)",
