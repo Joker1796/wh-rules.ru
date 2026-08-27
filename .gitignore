@@ -21,6 +21,9 @@
 .idea/
 .vscode/
 .claude/settings.local.json
+# A build/deploy run started from the hub root (background commands land here) leaves an
+# empty node_modules/.vite behind; nothing at this level ever has real dependencies.
+node_modules/
 
 # ─── OS noise ───
 .DS_Store
