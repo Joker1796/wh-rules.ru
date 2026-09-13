@@ -20,6 +20,8 @@
 
 ## Архив 2026
 
+- [Уборка документации и система журналов](archive/2026/2026-09-13-docs-cleanup.md) — журналы в
+  хаб, `CLAUDE.md` на scoped-файлы, восемь скилов
 - [Doubles, трансляция, баг-репорты](archive/2026/2026-09-11-doubles-broadcast-feedback.md) —
   v2.4.0–2.4.2; хвост: живой смоук телефон → OBS
 - [Жалобы игрока по Astra Militarum](archive/2026/2026-09-10-player-reports-am.md) — три бага
