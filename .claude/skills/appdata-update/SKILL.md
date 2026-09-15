@@ -10,7 +10,9 @@ description: Обновить базу правил wh11ed под новую в�
 
 **Источник правды по правилам — `wh40k-appdata`**, дамп официального приложения GW. MFM вторичен
 и важнее appdata только по UNIQUE-тегам детачментов. При неоднозначности **спросить пользователя**,
-а не гуглить и не качать PDF. Ветки разные: appdata на `master`, wh11ed на `main`.
+а не гуглить и не качать PDF. Ровно два исключения, где appdata пуст и PDF/APK — единственный
+источник: **картинки раскладок** (только ресурсы APK) и **FAQ колоды Chapter Approved**
+(только PDF компаньона) — см. шаг 1b. Ветки разные: appdata на `master`, wh11ed на `main`.
 
 ## 1. Ingest
 
@@ -20,6 +22,23 @@ description: Обновить базу правил wh11ed под новую в�
 cd ../wh40k-appdata && node scripts/ingest.mjs        # сам найдёт свежий пакет; печатает old→new data_version
 node scripts/changes.mjs --json changes.json          # классифицированный дифф по стабильным id
 ```
+
+## 1b. Картинки раскладок и PDF компаньонов — у них свой канал
+
+Часть Event Companion живёт **вне appdata**, поэтому обычный `npm run sync` её не видит:
+
+```bash
+cd ../wh11ed
+npm run layouts            # 45 диаграмм раскладок против артворка в свежем APK
+node scripts/extract-layout-images.mjs   # если гейт назвал перерисованные — вытащит и переименует их
+npm run images:webp && npm run images:dims && npm run imghash -- --write
+npm run companions         # версии четырёх PDF + FAQ колоды, которого в appdata нет вовсе
+```
+
+Компаньоны качать в `sources/` с warhammer-community.com (раздел Downloads → Event Companions) —
+это **исключение** из правила «не качать PDF»: у appdata нет ни картинок раскладок, ни FAQ.
+Когда `npm run companions` показывает бамп версии, он печатает GW-шный WHAT'S NEW: прочитать,
+внести, потом `npm run companions -- --write`.
 
 ## 2. Сначала план, потом правки
 
