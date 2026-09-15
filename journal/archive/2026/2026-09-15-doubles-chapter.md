@@ -2,7 +2,7 @@
 > **Репозитории:** wh11ed
 > **Начато:** 2026-09-15
 > **Итог:** глава Doubles живёт на `/event-companion#ec-chapter-doubles` (EN+RU), гейт на
-> сокращение — в `sync-event-companion.mjs`; в код смержено, в прод поедет с v2.4.4
+> сокращение — в `sync-event-companion.mjs`; **в проде с v2.4.4 (2026-09-16)**
 > **Связано:** [Doubles + Broadcast для OBS](2026-09-11-doubles-broadcast-feedback.md)
 
 # Глава Doubles в Event Companion

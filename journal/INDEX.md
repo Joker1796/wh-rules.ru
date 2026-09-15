@@ -25,11 +25,12 @@
 ## Архив 2026
 
 - [Аудит покрытия гейтов](archive/2026/2026-09-15-gate-coverage-audit.md) — EN↔RU-гейт накрыл
-  датащиты, миссии, CP и FAQ; 10 находок исправлено, `ui.js` под тестом
+  датащиты, миссии, CP и FAQ; 10 находок исправлено, `ui.js` под тестом; в проде с v2.4.4
 - [Event Companion: догнать 26 августа](archive/2026/2026-09-15-event-companion-catchup.md) — 27
-  перерисованных раскладок, 4 FAQ, шаг 3; гейты `layouts` и `companions` закрыли слепую зону
+  перерисованных раскладок, 4 FAQ, шаг 3; гейты `layouts` и `companions`; в проде с v2.4.4,
+  хвост — невыкаченный `cbdb0dd` (SEO-описание)
 - [Глава Doubles в Event Companion](archive/2026/2026-09-15-doubles-chapter.md) — дельта вместо
-  пересказа 14 шагов, гейт на сокращение в `sync-event-companion.mjs`; едет в v2.4.4
+  пересказа 14 шагов, гейт на сокращение в `sync-event-companion.mjs`; в проде с v2.4.4
 - [Потеря выделения в прозе фракций](archive/2026/2026-09-15-emphasis-drift.md) — гейт
   `npm run emphasis`, форма `[core:Name]`, класс A целиком и 1006 мест класса B; в проде с v2.4.3
 - [Покрытие core-грантов в ростере](archive/2026/2026-09-15-core-grant-coverage.md) — гейт
