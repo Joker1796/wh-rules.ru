@@ -45,12 +45,23 @@ Dark Angels: Ravenwing Talonmaster (105), Deathwing Strikemaster (80), Deathwing
 `.claude/skills/legends-from-pack/SKILL.md` в хабе; строка в таблице скилов CLAUDE.md; параграф в
 `wh11ed/src/data/CLAUDE.md`; changelog 2.5.1 дополнен. Гейты, тесты (1858), сборка — зелёные.
 
+## Вторая фракция: Drukhari (`549b422`)
+
+Все семь листов пака v1.2 (Beastmaster, Court of the Archon, Grotesques, Raven Strike Fighter,
+Reaper, Tantalus, Urien Rakarth), EN и RU сразу. Скил отработал без правок скриптов; новое, что
+встретилось и что скил покрывает формой записи: несколько профилей с keywords по моделям
+(`keywordsByModel`, имена профилей капсом), `damaged`, `transport`, рамочные `rules` (COURT OF THE
+ARCHON, MONSTROUS HULKS), лист без лора (Reaper, Raven Strike Fighter — в паке его нет). Опечатку
+GW «Electromagentic Cascade» оставили как в источнике. Владелец докачал паки: локально теперь
+Aeldari, Necrons, T’au, Tyranids, GSC, Votann, Drukhari — плюс прежние.
+
 ## Хвосты
 
 - ~~RU-проход по трём листам DA~~ — сделан тем же днём (`449ff08`): оверлей в `ru/dark-angels.js`,
   4 заголовка в `abilityNamesRu`; тест покрытия держит листы под полным гейтом.
 - Space Marines: часть профилей оружия вынесена на «Adeptus Astartes Legends Armoury card» —
   перед SM найти этот документ.
-- Локально есть паки SM (76), CSM (31), Agents (17), Drukhari (7); остальные — качать.
+- Локально есть паки SM (76), CSM (31), Agents (17), Aeldari (23), T’au (19), Necrons (12),
+  Tyranids (5), GSC (1); Votann в MFM Legends нет. Остальные — качать.
 - `gen-roster-data` жалуется «no MFM entry» на `Blitza‑bommer`/`Burna‑bommer` — в MFM имя с
   обычным дефисом, у нас с неразрывным; не этого захода, но `norm()` стоит научить.
