@@ -11,9 +11,10 @@ description: Разобрать баг-репорты игроков из wh11ed
 cd wh11ed-api
 export YDB_ENDPOINT=ydb.serverless.yandexcloud.net:2135
 export YDB_DATABASE=/ru-central1/b1gp4gkufb7h5t4bgd41/etnj9vg2so92cj89voa7
-export YDB_ACCESS_TOKEN=$(yc iam create-token)
+export YDB_ACCESS_TOKEN=$(~/yandex-cloud/bin/yc iam create-token)   # yc не в PATH шелла
 npm run feedback:list                 # дайджест, свежие сверху
 npm run feedback:list -- <id-префикс> # один отчёт целиком: контекст, ошибки, вложение
+npm run users:count                   # сколько аккаунтов всего и по месяцам (тот же env)
 ```
 
 В отчёте есть версия приложения, маршрут, последние JS-ошибки и — если игрок отметил галочку —
