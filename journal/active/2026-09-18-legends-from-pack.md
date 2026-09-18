@@ -105,12 +105,29 @@ Daemons 10, GK 5, DG 5. Пак GK локально не лежит.
 - `gen-roster-data` жалуется «no MFM entry» на `Blitza‑bommer`/`Burna‑bommer` — в MFM имя с
   обычным дефисом, у нас с неразрывным; не этого захода, но `norm()` стоит научить.
 
+## Заход 4 — Chaos Daemons и Death Guard (2026-09-18)
+
+Daemons 10 (пак v1.1) + DG 5 (пак v1.2), EN+RU одним проходом, коммит wh11ed `9898af6`. Что
+отличалось от Империума:
+
+- **В этих паках у Legends нет лора** — `flavor` не заводится, тест покрытия RU это терпит.
+- Общие правила Daemons: DAEMONIC ALLEGIANCE → `rules`, «Creature of <god>» → `specialAbilities`
+  (тот же раскрой, что у Daemon Prince of Chaos в appdata); GRANDFATHER’S BLESSING → `rules`.
+  В RU — константы в шапке файла, а не копипаста по листам.
+- В PDF DG опечатка «twin lighting claws» — в данных исправлено на lightning.
+- `add-datasheets` для chaos-daemons написал «appended», а не «kept sorted» — файл и раньше не
+  был отсортирован по id, это не регресс.
+
+В списке MFM осталось **140**: SM 76 (Armoury card), CSM 31, Space Wolves 18, Blood Angels 10,
+GK 5 (пак качать).
+
 ## Где остановились (2026-09-18, конец дня)
 
-Всё сделанное закоммичено (wh11ed `3b56b7a`), **не запушено и не в проде** — прод на v2.5.0,
+Всё сделанное закоммичено (wh11ed `9898af6`), **не запушено и не в проде** — прод на v2.5.0,
 всё это едет в 2.5.1 вместе с прозой Legends и ролями в партии (api первым). Следующий заход,
-если пользователь попросит: Chaos (CSM 31, Daemons 10, DG 5 — паки есть?), SM-ордена (SW 18,
+если пользователь попросит: CSM 31 (пак есть), SM-ордена (SW 18,
 BA 10, SM 76 — сначала найти «Legends Armoury card»), GK 5 (пак качать). Скриптовые хелперы
-RU-оверлея жили в scratchpad и не сохранились — пересобирать: `apply(path, block, names,
-comment)` вставляет блок перед `export const abilityNamesRu` и дописывает новые заголовки.
+RU-оверлея живут в scratchpad и сессию не переживут — пересобирать: `apply(path, block, names,
+comment)` вставляет блок перед `export const abilityNamesRu` (маркер терпит `//`-строки перед
+экспортом) и дописывает новые заголовки, пропуская уже существующие ключи.
 
