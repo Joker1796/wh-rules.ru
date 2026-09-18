@@ -16,7 +16,7 @@
 
 **Вердикт по репорту:** не баг, добавить нечего — но таблица и есть ответ игроку.
 
-## Что сделано (всё в wh11ed, НЕ закоммичено на момент записи)
+## Что сделано (wh11ed, закоммичено `1c3fd19` 2026-09-18)
 
 - `scripts/gen-faction-legends.mjs` (`npm run legends`, `--check` в `npm run sync`) →
   `src/data/factionLegends.json`; цель прокси резолвится в наш датащит по имени, нерезолв =
@@ -39,8 +39,7 @@
 
 ## Следующий шаг
 
-1. Закоммитить в `wh11ed` (main): `feat(factions): Legends prose — the Warhammer Legends intro
-   and the Legendary Proxies table, on the unit list and in search`. 15 файлов, 3 новых.
+1. ~~Закоммитить~~ — сделано, `1c3fd19`.
 2. Релиз — скил `release-frontend` (в проде v2.5.0; changelog 2.5.1 уже дописан).
 3. Закрыть этот журнал.
 
