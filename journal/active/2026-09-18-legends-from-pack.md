@@ -73,9 +73,26 @@ Aeldari, Necrons, T’au, Tyranids, GSC, Votann, Drukhari — плюс преж�
   добавлении заголовков смотреть, нет ли уже такого ключа (Armour Hunter, Scattershield и т.п. —
   eslint `no-dupe-keys` ловит).
 
-Осталось в списке MFM: **244 Legends-юнита без датащита** — все у Империума и Хаоса (SM 76 с
-«Legends Armoury card», CSM 31, Agents 17, AM 63, Space Wolves 18, Blood Angels 10, Daemons 10,
-GK 5, DG 5, Sororitas 5, AdMech 4).
+На тот момент в списке MFM оставалось 244 Legends-юнита без датащита — Империум и Хаос;
+см. заход 3 ниже.
+
+## Заход 3 — Империум без орденов (2026-09-18)
+
+Sororitas (5), AdMech (4), Imperial Agents (17), Astra Militarum (63) — EN+RU за один заход, все
+паки были локально. Что добавилось к знанию:
+
+- AM и Agents — самые «структурные» листы: `transport`, `damaged`, `keywordsByModel`, `rules`
+  (ORDERS, ATTACHED UNIT, ARTILLERY TEAM с примечанием разработчика). RU-оверлей кладёт ORDERS в
+  `rules`, как и EN-запись из пака (старые листы AM держат его в `special` — это их дело).
+- `keywordsByModel` не локализуется — подписи моделей английские, как имена.
+- Повторяющиеся тексты (Aerial Deployment, транспорт Chimera-класса, Pinning/Suppression
+  Bombardment, «Примечание разработчика» про жетоны Crew) собирались хелперами в скрипте
+  генерации оверлея, а не копипастой — иначе 63 листа не вычитать.
+- Комментарий в RU-файле про версию пака брать из `sourceVersion` EN-записи, не по памяти
+  (AM — v1.2, а не 1.3).
+
+В списке MFM осталось **155**: SM 76 (Armoury card), CSM 31, Space Wolves 18, Blood Angels 10,
+Daemons 10, GK 5, DG 5. Пак GK локально не лежит.
 
 ## Хвосты
 
