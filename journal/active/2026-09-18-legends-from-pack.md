@@ -145,14 +145,50 @@ GK 5 (пак качать).
   `Conversion` и `Impaled` — `wargearAbilities` на листе.
 - Гейты, 1859 тестов, build — зелёные; `npm run sync` листы пака не трогает.
 
+## Заход 6 — три ордена: Space Wolves, Blood Angels, Grey Knights (2026-09-18)
+
+По просьбе «возьми три ордена спейсмаринов и сразу алиасы»: SW 18 (пак v1.2), BA 10 (v1.1),
+GK 5 (v1.1, пак к этому моменту уже лежал в `sources/Faction pack 11 ed/cm/`) — EN+RU и
+RU-алиасы поиска одним заходом; в MFM осталось **76 — только собственные листы Space Marines**
+(перед ними искать «Adeptus Astartes Legends Armoury card»). Что отличалось:
+
+- **Long Fangs ссылаются на «Space Wolves Armoury card»** за профилями flamer / grav-gun /
+  meltagun / plasma gun / plasma pistol (Pack Leader) и heavy flamer. Карты в паке нет; профили
+  взяты с соседнего листа того же пака (Skyclaws, Wolf Guard Pack Leader in Terminator Armour),
+  BS 3+ как у боевого Long Fang Pack Leader. Сноска «см. Armoury card» опущена, как и раньше.
+- **Оставлено как напечатано, но стоит перепроверить по бумажному паку:** Canis Wolfborn bolt
+  pistol BS 5+; Wolf Guard (отряд) LD 5+; Wolf Guard Pack Leader close combat weapon WS 4+ при
+  chainsword 3+; у Wolf Guard Pack Leader in Terminator Armour combi-weapon A2 и
+  `IGNORES COVER` вместо `RAPID FIRE 1` (у пяти других листов пака — обычный профиль).
+- **Опечатки PDF, решённые по смыслу:** keyword «Death Compamy Marines with Boltguns»;
+  «crushing teeth and jaws» в loadout Canis (оружие — claws); «Thunderworlf» в составе Battle
+  Leader; «can replaced» у Stormwolf; «with have» в Tactical Precision; «1 Blood Talons» /
+  «1 twin Furioso fist» в опциях Furioso приведены к именам строк оружия; leader-текст «the
+  following unit:» (ед. ч.) везде нормализован к стандартной фразе, чтобы RU-константа
+  `LEADER_TEXT` подхватывалась. Krom Dragongaze в составе напечатан без «– Epic Hero» при
+  keyword Epic Hero — добавлено, как у всех.
+- **Hounds of Morkai:** инвуль 6+ с примечанием «4+ против Psychic Attacks» — поле `invNote`
+  на профиле (прецедент Howling Banshee), примечание по конвенции остаётся английским.
+- **Legends-редакция Black Rage** (только Chaplain в 12", без «BA Character в 6"») отличается
+  от кодексной — в RU две константы `BLACK_RAGE_LEGENDS_UNIT/_MODEL`, кодексная `BLACK_RAGE`
+  не тронута. Death Vision у Tycho the Lost с другими порогами (3 / D3+3 / D6+3) — своим текстом.
+- Лор в SW-паке есть только у Stormwolf и двух листов Wolf Guard; в GK-паке лора нет.
+- Алиасы: 7 правил-классов (`^Servitors$` заякорен, чтобы не трогать Munitorum Servitors и
+  будущих Astartes Servitors; Cyberwolf, Hounds of Morkai, Long Fangs, Skyclaws, Stormfang,
+  Stormwolf) + 11 именных на листах; глоссарий дал «Канис Волкорожденный», «Кром Драконий
+  Взор», «Лукас Ловкач», «Харальд Волк Смерти», «Длинные Клыки», «Небесные Когти»,
+  «Оседлавший Бурю», «Грозовой клык/волк»; Корбуло, Драйго, Стерн, Сет, Тихо — транслитерация
+  (в глоссарии нет). Индекс 1686/1686.
+- Гейты (`wtags`, `parity`, `dsrules`, `coregrants`, `sync`), 1859 тестов, lint, build — зелёные.
+
 ## Где остановились (2026-09-18, конец дня)
 
-Всё сделанное закоммичено (wh11ed `1442b4a`), **не запушено и не в проде** — прод на v2.5.0,
-всё это едет в 2.5.1 вместе с прозой Legends и ролями в партии (api первым). Хаос собран
-целиком; в MFM осталось 109 — только ордена космодесанта и Grey Knights. Следующий заход,
-если пользователь попросит: SM-ордена (SW 18, BA 10, SM 76 — сначала найти «Legends Armoury
-card»), GK 5 (пак качать). Скриптовые хелперы RU-оверлея живут в scratchpad и сессию не
-переживут — пересобирать: `apply(path, block, names, comment)` вставляет блок перед
-`export const abilityNamesRu` (маркер терпит `//`-строки перед экспортом) и дописывает новые
-заголовки, пропуская уже существующие ключи; константы-хелперы (опции, транспорты) идут
-отдельной вставкой перед `export default {`.
+Заходы 1–5 закоммичены (wh11ed `1442b4a`, алиасы `b04f8f0`), заход 6 (три ордена, 33 листа)
+— в рабочем дереве wh11ed, ждёт вычитки владельцем и его слова на коммит. Всё **не запушено и
+не в проде** — прод на v2.5.0, едет в 2.5.1 вместе с прозой Legends и ролями в партии (api
+первым). В MFM осталось 76 — собственные листы Space Marines: сначала найти «Adeptus Astartes
+Legends Armoury card», без неё оружейные строки не собрать. Скриптовые хелперы RU-оверлея живут
+в scratchpad и сессию не переживут — пересобирать: `apply(slug, consts, block, names)` вставляет
+константы перед `export default {`, блок листов перед `export const abilityNamesRu` и дописывает
+новые заголовки, пропуская уже существующие ключи (для орденов — ещё и унаследованные из
+`smNames`, их в файл не дублировать).
