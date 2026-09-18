@@ -55,6 +55,28 @@ ARCHON, MONSTROUS HULKS), лист без лора (Reaper, Raven Strike Fighter
 GW «Electromagentic Cascade» оставили как в источнике. Владелец докачал паки: локально теперь
 Aeldari, Necrons, T’au, Tyranids, GSC, Votann, Drukhari — плюс прежние.
 
+## Все ксеносы (`8fc8fdc`, `2156ff5`)
+
+По просьбе владельца — GSC (1), Tyranids (5), Necrons (12), T’au (20), Aeldari (23), всё EN+RU.
+Что скил узнал по дороге и что записано в него/скрипты:
+
+- **Порядок ключей важен:** `points` раньше `id` → `sync-mfm-points` ценит соседний лист
+  (сканирует вперёд от строки `"id"`). `add-datasheets.mjs` теперь отказывает такой записи.
+- Семь файлов датащитов — не строгий JSON (висячая запятая в `leader`); скрипт вставки читает
+  массив как JavaScript и пишет обратно JSON — нормализация в несколько строк.
+- `faction` не обязателен: у Fortification нет строки FACTION.
+- MFM зовёт «Sentry Pylons», пак — SENTRY PYLON: таблица `LEGENDS_MFM_NAMES` в `sync-mfm-points`.
+- Tactical Drones т’ау в MFM нет вовсе → `points: []`, без цены.
+- «Armoury card» (Aeldari) и «Drones page» (T’au) — оружие/дроны вкладываются в листы, которые на
+  них ссылаются, как делают кодексные листы; сноски «см. страницу…» опускаются.
+- RU: у Necrons оверлей в форме `{ name, text }`, у остальных — строка + `abilityNamesRu`; при
+  добавлении заголовков смотреть, нет ли уже такого ключа (Armour Hunter, Scattershield и т.п. —
+  eslint `no-dupe-keys` ловит).
+
+Осталось в списке MFM: **244 Legends-юнита без датащита** — все у Империума и Хаоса (SM 76 с
+«Legends Armoury card», CSM 31, Agents 17, AM 63, Space Wolves 18, Blood Angels 10, Daemons 10,
+GK 5, DG 5, Sororitas 5, AdMech 4).
+
 ## Хвосты
 
 - ~~RU-проход по трём листам DA~~ — сделан тем же днём (`449ff08`): оверлей в `ru/dark-angels.js`,
