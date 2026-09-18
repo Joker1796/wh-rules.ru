@@ -4,8 +4,8 @@
 
 ## Активные
 
-- [Legends из Faction Pack'ов](active/2026-09-18-legends-from-pack.md) — скил `legends-from-pack`; сделаны все
-  ксеносы, весь Хаос, Империум с SW/BA/GK (235 листов, EN+RU+алиасы); в MFM осталось 76 — SM (Armoury card)
+- [Legends из Faction Pack'ов](active/2026-09-18-legends-from-pack.md) — скил `legends-from-pack`; **список MFM
+  закрыт** — 311 листов EN+RU+алиасы по 18 фракциям; SW/BA/GK (33) и SM (76) не закоммичены, ждут вычитки
 - [Роли в общей партии](active/2026-09-18-party-roles.md) — «своя сторона — своя» для хоста тоже,
   чужая карточка читается, гостю его локальные настройки; **закоммичено, не выкачено**; деплой api первым
 - [Проза Legends: интро и Legendary Proxies](active/2026-09-18-legends-prose.md) — сделано и

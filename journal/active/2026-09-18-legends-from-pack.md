@@ -181,14 +181,64 @@ RU-алиасы поиска одним заходом; в MFM осталось 
   (в глоссарии нет). Индекс 1686/1686.
 - Гейты (`wtags`, `parity`, `dsrules`, `coregrants`, `sync`), 1859 тестов, lint, build — зелёные.
 
-## Где остановились (2026-09-18, конец дня)
+## Заход 7 — Space Marines, все 76 (2026-09-18)
 
-Заходы 1–5 закоммичены (wh11ed `1442b4a`, алиасы `b04f8f0`), заход 6 (три ордена, 33 листа)
-— в рабочем дереве wh11ed, ждёт вычитки владельцем и его слова на коммит. Всё **не запушено и
-не в проде** — прод на v2.5.0, едет в 2.5.1 вместе с прозой Legends и ролями в партии (api
-первым). В MFM осталось 76 — собственные листы Space Marines: сначала найти «Adeptus Astartes
-Legends Armoury card», без неё оружейные строки не собрать. Скриптовые хелперы RU-оверлея живут
-в scratchpad и сессию не переживут — пересобирать: `apply(slug, consts, block, names)` вставляет
-константы перед `export default {`, блок листов перед `export const abilityNamesRu` и дописывает
-новые заголовки, пропуская уже существующие ключи (для орденов — ещё и унаследованные из
-`smNames`, их в файл не дублировать).
+Последняя фракция из списка MFM; после неё `sync:mfm` печатает «datasheet points match MFM» без
+хвоста. Пак v1.2, страницы 65–219; листы разбиты на две части: 47 «кодексных» (65–158) и 29
+Forge World (160–217, у каждого есть флейвор, у кодексных — только у Ferren Areios).
+
+- **Armoury card нашлась внутри самого пака** — две страницы «ADEPTUS ASTARTES LEGENDS ARMOURY»:
+  p.159 (пехота/байки, `*` = BS на 1 лучше у Captain/Lieutenant) и p.218 (техника, BS 3+). На
+  сайте warhammer-community отдельного файла нет (проверено через их API поиска загрузок: у 40k
+  всего 40 файлов, Legends среди них нет). Ничего качать не пришлось.
+- **Карта p.159 напечатана с браком:** колонка Range почти вся «12"» (у лазпушки, тяжёлого
+  болтера, болтгана, мульти-мельты, шторм-болтера, грав-пушки, комби). Решение: дальность
+  таких строк взята с мейнлайн-датащитов SM того же оружия (24/36/48/18/24/24/24; inferno
+  pistol — 6", как у мейнлайна и у самих Legends-листов), всё остальное с карты — как напечатано.
+  Из «как напечатано» подозрительны: Storm bolter **A3** (везде A2), Grav-pistol
+  **[ANTI-INFANTRY 2+]** (на самих листах ANTI-VEHICLE 2+). Оба оставлены как на карте — ⚠ для
+  вычитки.
+- **Оружия, которого нет ни на одной карте,** хотя лист отсылает к ней: `plasma cannon*`
+  (Command Squad) — взят профиль Devastator Squad (BS 4+, HEAVY); `flamer*/grav-gun*/meltagun*`
+  (Bike Squad) — профили соседнего листа Company Veterans on Bikes из того же пака.
+- **Опечатки PDF, исправленные по смыслу:** «Ferren Aerios» — так пишет MFM, пак везде
+  «Areios» (лист назван по паку, в `sync-mfm-points.mjs` добавлен маппинг
+  `LEGENDS_MFM_NAMES['ferren aerios'] → 'ferren areios'`); «are have the» (Tyrannic War
+  Veterans); «one 1 chainfist» (Relic Terminators); «volite culverins», «on of the following»
+  (Mastodon); «re-roll a Wound roll or 1» (Sicaran Omega); «twin heavy bolter replaced with»
+  (Tarantula Sentry); «2 twin hellstrike missile launchers» → «launchers» (Storm Eagle, Fire
+  Raptor); «sniper rifle» → «scout sniper rifle» в loadout Scout Sniper Squad; обрезанные
+  правым краем слова layout-режима (Momen/Tempes/Dreadnough) — из flow-режима.
+- **Как напечатано, но стоит проверить (⚠):** Librarian with Jump Pack — inferno pistol **D6**
+  (у всех остальных D3); Tarantula Sentry Battery — twin heavy bolter без TWIN-LINKED; Sokar —
+  инвуль 4+ «только против дальнобойных атак» (записан `invNote`, как у Hounds of Morkai);
+  Xiphon / Storm Eagle / Fire Raptor — M и OC «-» (как у Stormhawk в мейнлайне); Thunderfire
+  Cannon — одна строка профиля на две модели.
+- **Структура:** Bike Squad — два профиля (Space Marine Bike / Attack Bike); Command Squad,
+  Bike Squad, Thunderfire — многочастный loadout `**X is equipped with:** …`; Sergeant Chronus —
+  `rules: TANK COMMANDER` со списком техники через `\n▪`; Imperial Space Marine — `rules:
+  ATTACHED UNIT` (двойной лидер); плашки ATTACHED UNITS ×5 с разным текстом, COMMAND SQUAD
+  BODYGUARD, SERVITOR RETINUE; у Tarantula Air Defence и Astartes Servitors нет FACTION-строки —
+  `faction` не задан; Dreadnought Drop Pod без оружия, loadout «nothing».
+- **RU** собран скриптом: 97 текстов способностей (≈45 — дословный реюз из других фракций
+  через `reuse.mjs`, остальные новые), 97 строк опций — **регексами по шаблонам** (16 паттернов
+  «This model’s X can be replaced…», «Any number of…», «Up to 2…», «For every 5 models…» и
+  т.д., подпункты «1 X and 1 Y» → «и»), 30 флейворов, 12 транспортов, damaged — генератором
+  (в т.ч. вариант «subtract 4/6 from OC»). 56 заголовков добавлены в `abilityNamesRu` SM.
+  Сноска карты: «* Профиль этого оружия приведён на карте Adeptus Astartes Legends Armoury.»
+- **Алиасы:** 7 на листах (Арейос, Кулн, Кассий, Хронус, Телион, имперский космодесантник,
+  ветераны Тиранических войн) + 31 правило классов в `datasheetAliasRulesRu.js` («Сикаранец»,
+  «Кратос», «Разящий клинок», «Громобой», «Тарантул», байкеры, штурмовое отделение…);
+  `^Assault Squad\b` заякорен, чтобы не цеплять Terminator Assault Squad. Индекс 1762/1762.
+- Гейты: wtags, parity (1762 листов, 0 ошибок), dsrules, coregrants, sync (0 FLAGGED), 99
+  файлов / 1859 тестов, lint, build — зелёные. Чейнджлог 2.5.1 — новая EN/RU строка про 76.
+
+## Где остановились (2026-09-18, ночь)
+
+Заходы 1–5 закоммичены (wh11ed `1442b4a`, алиасы `b04f8f0`); **заходы 6 (SW/BA/GK, 33 листа)
+и 7 (SM, 76 листов) — в рабочем дереве wh11ed, не закоммичены**, ждут вычитки владельцем
+(⚠-списки в разделах заходов) и его слова на коммит. Всё **не запушено и не в проде** — прод на
+v2.5.0, едет в 2.5.1 вместе с прозой Legends и ролями в партии (api первым). **Список работы MFM
+пуст** — `sync:mfm` больше не печатает Legends без датащита; журнал можно закрывать после
+коммита и релиза. Скриптовые хелперы (`smlib.py`, `sm-part1..5.py`, `sm-ru-*.py`, `ru-apply.py`,
+`reuse.mjs`) живут в scratchpad и сессию не переживут; их идея описана выше и в заходе 6.
