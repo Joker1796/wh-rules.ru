@@ -4,6 +4,8 @@
 
 ## Активные
 
+- [Legends из Faction Pack'ов](active/2026-09-18-legends-from-pack.md) — пилот Dark Angels (3 листа) + скил
+  `legends-from-pack`; MFM теперь знает Legends-очки (311 юнитов без датащита = объём); RU отдельно
 - [Роли в общей партии](active/2026-09-18-party-roles.md) — «своя сторона — своя» для хоста тоже,
   чужая карточка читается, гостю его локальные настройки; **закоммичено, не выкачено**; деплой api первым
 - [Проза Legends: интро и Legendary Proxies](active/2026-09-18-legends-prose.md) — сделано и
