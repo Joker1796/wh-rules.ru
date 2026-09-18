@@ -47,7 +47,8 @@ Dark Angels: Ravenwing Talonmaster (105), Deathwing Strikemaster (80), Deathwing
 
 ## Хвосты
 
-- RU-проход по трём листам DA (скил `ru-translate`) — отдельный заход.
+- ~~RU-проход по трём листам DA~~ — сделан тем же днём (`449ff08`): оверлей в `ru/dark-angels.js`,
+  4 заголовка в `abilityNamesRu`; тест покрытия держит листы под полным гейтом.
 - Space Marines: часть профилей оружия вынесена на «Adeptus Astartes Legends Armoury card» —
   перед SM найти этот документ.
 - Локально есть паки SM (76), CSM (31), Agents (17), Drukhari (7); остальные — качать.
