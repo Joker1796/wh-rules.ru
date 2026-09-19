@@ -12,9 +12,12 @@ Faction Pack'а** (раздел «Legends Datasheets», страницы — в 
 appdata её догонит, обрабатывается явно (см. §7).
 
 **Что получается.** Датащит на странице фракции (с бейджем Legends и чекбоксом «Скрыть Legends»),
-в глобальном поиске, в индексе фаз, с очками из MFM. **В конструктор ростеров — нет:** его данные
-генерируются из таблиц appdata (состав, структура вооружения), у записи из PDF их нет. Это
-осознанное ограничение, а не забытый шаг.
+в глобальном поиске, в индексе фаз, с очками из MFM — **и в конструкторе ростеров** (с 2026-09-19):
+`npm run roster:data` читает `composition`/`loadout`/`options` записи с `source: "faction-pack"`
+(`wh11ed/scripts/lib/pack-roster.mjs`, раздел «The Faction Pack Legends» в
+`wh11ed/src/components/roster/CLAUDE.md`). Чтение fail-closed: всё, что не распарсилось, генератор
+печатает под заголовком «Faction Pack Legends» — читать после каждого нового листа, новая
+формулировка = новый шаблон в `parseOption`, а не заметка.
 
 Пилот: Dark Angels, 3 датащита (журнал `journal/active/2026-09-18-legends-from-pack.md`).
 
@@ -96,7 +99,8 @@ pdftotext         -f <A> -l <B> "$f" <scratch>/<slug>-legends-flow.txt     # п�
 node scripts/add-datasheets.mjs <slug> <scratch>/<slug>-legends.json  # валидирует, вставляет по алфавиту id
 node scripts/sync-mfm-points.mjs --write                              # points из секции legends MFM
 npm run datasheets:index && npm run phases:index                      # поиск и индекс фаз
-npm run roster:data                                                   # только чтобы цены Legends в ростере обновились
+npm run roster:data                                                   # ростер: лист попадает в конструктор; читать отчёт «Faction Pack Legends»
+npm run roster:texts-ru                                               # RU для новых формулировок опций (fail-open, % покрытия в отчёте)
 ```
 
 ## 5. Гейты
