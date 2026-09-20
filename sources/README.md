@@ -30,6 +30,10 @@
   в `wh11ed/CLAUDE.md`.
 - **Кодексы, Faction packs, Index-книги** — обычно разложены по группам фракций
   (`chaos`, `cm`, `imperium`, `xenos`). Приоритет при расхождениях: **MFM > Faction Pack > Codex**.
+- **`mfm/mfm_v3.7.pdf` — MFM 10-й редакции** (© 2025), не 11-й: канон очков для wh11ed — веб-MFM
+  (`wh11ed/scripts/scrape-mfm.py` → `wh11ed/src/data/mfm/`). Его Legends-раздел содержит листы,
+  которых в паках 11 ed нет (Sanguinary Priest on Bike, Iron Priest on Thunderwolf, Ultramarines
+  Honour Guard) — это не пробел в данных, а прошлая редакция (проверено 2026-09-20).
 - **Глоссарий сообщества** — `Vse_pamyatki_i_glossarii_po_vakhe.docx`, исходник для
   `wh-glossary/scripts/extract.py`.
 - **Шрифты** для генерации картинок (например `SaarSPDemo.otf` — узкий дисплейный шрифт с
