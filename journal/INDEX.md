@@ -9,6 +9,8 @@
 
 ## Приостановленные
 
+- [Колода Dominatus](paused/2026-09-20-dominatus-deck.md) — что это, состав, где текст: в appdata
+  только Event Companion, полная расшифровка только на Wahapedia; ждём решения владельца
 - [Печатные карточки миссий — форк игрока](paused/2026-09-20-mission-cards-print-fork.md) — issue #333,
   форк `lytvest/wh11ed` (страница `/missions-print`, PNG-экспорт), сливается чисто; ждём решения
   владельца, пока не трогаем
