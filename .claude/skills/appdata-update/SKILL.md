@@ -52,6 +52,11 @@ npm run companions         # версии четырёх PDF + FAQ колоды,
 Правки в `wh11ed/src/data/**`, сверка через `npm run sync` (+ `sync:text`, `sync:mfm`).
 Числа очков берутся из MFM, а не из appdata.
 
+Ручные исключения, где мы сознательно разошлись с appdata, сами напоминают о себе: `npm run
+roster:data` печатает строку `PACK_ATTACH`, а `npm run sync` (sync-leader-units) — `PACK_EXTRA`,
+как только appdata их догнала. Увидел такую строку — убрать запись из обоих списков (сегодня одна:
+Huron Blackheart → Masters of the Maelstrom по CSM Faction Pack v1.2, см. `roster/CLAUDE.md`).
+
 ## 4. RU-проход — отдельно
 
 ```bash
