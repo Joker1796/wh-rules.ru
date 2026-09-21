@@ -42,20 +42,17 @@ Maelstrom» удалён. Core-правило Support само даёт боди
 Проверено движком: Huron → Masters (leader), Masters → Chosen (support), Chaos Lord → те же Chosen
 рядом с ними.
 
-## Состояние на конец сессии 2026-09-21
+## Состояние на конец сессии 2026-09-21 (вторая сессия)
 
-- wh11ed коммит `a1d1840` в `main` — **не запушен, не задеплоен**; прод на v2.6.4.
-- `wh11ed/src/data/changelog.js` — запись 2.6.5 (два пункта: датащиты + конструктор) **написана,
-  но не закоммичена**: ждёт «ок» владельца по RU-тексту (правило скила `changelog-entry`).
-- Гейты чисто: sync (baseline перезаписан: −4 устаревшие, +1 Huron), parity, dsrules, coregrants,
-  roster:data:check, modifiers:check, translate:check; 1916 тестов, lint, build.
-- В `npm run sync` без baseline печатаются 6 строк по главе Doubles Event Companion («1. Muster
-  Armies», «Transports 18.00»…) — **не моё, в baseline не тащил**; глава писалась как дельта
-  (см. память `project_doubles_chapter`), скорее всего это ожидаемо — решить отдельно.
+- wh11ed коммиты `a1d1840` (эта задача) и `894d067` (автообновление PWA + чейнджлог 2.6.5) в
+  `main` — **не запушены, не задеплоены**; прод на v2.6.4.
+- Запись 2.6.5 владелец сжал сам (три пункта: датащиты, конструктор, обновление PWA; без
+  «спасибо игроку») — закоммичена в `894d067`.
+- Гейты чисто (см. первую сессию); 6 строк по главе Doubles в `npm run sync` без baseline —
+  не моё, решить отдельно.
 
 ## Следующий шаг
 
-1. Показать владельцу RU-текст записи 2.6.5 (`node -e "import('./src/data/changelog.js').then(m=>console.log(m.changelog[0].ru.join('\n')))"`), после «ок» — закоммитить.
-2. Релиз по скилу `release-frontend` (деплой сам бампит и пушит).
-3. `npm run feedback:delete -- caf57233` (env из скила `feedback-triage`).
-4. Закрыть журнал → `archive/2026/`.
+1. Релиз по скилу `release-frontend` (деплой сам бампит патч до 2.6.5 и пушит).
+2. `npm run feedback:delete -- caf57233` (env из скила `feedback-triage`).
+3. Закрыть журнал → `archive/2026/`.
