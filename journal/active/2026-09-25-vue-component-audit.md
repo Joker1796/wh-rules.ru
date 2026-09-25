@@ -137,3 +137,23 @@
   Doubles, у настоящей FAQ подписи не было. Починено (подписи по якорю). В чейнджлог.
 Обвязка снимков — `.shot.mjs`/`.shotdiff.mjs` в корне wh11ed (не в git), эталон — worktree
 `main` в scratchpad.
+
+Волна 4 и хвосты (тот же день):
+- п. 10 `sideName` (+ починка: ссылки на ростеры в истории звали хозяина старой партии «Соперник»),
+  п. 8 `TopBanner`, п. 6 `FactionOption` (+ глобальный `.fp-group`);
+- мелочи: `.hdr-icon`/`.stat-plate`/`.picker-actions` в style.css, `.fa-themed`, `SectionCardGrid`
+  (брейкпойнт 640), `useDatasheetParts`, `useSetupLayout` (+ EditSetupModal на `LayoutTabs`);
+- **`AttachedRosterLine` не делал:** строки ростера в мастере и в диалоге давно разные по дизайну
+  (иконка в ряду фракции vs широкая кнопка) — это решение по виду, не чистка; комментарий «same
+  recipe» исправлен на правду;
+- `RosterSetupFields`: **решение по виду развернул** — снимок показал, что плитки редактора
+  плотнее формы мастера (в форме мастера на 375px вторая галочка уезжала за экран). Общая форма =
+  плитки редактора + счётчик DP с «?»; `dpOverAllowed` теперь в `useRosterBuildActions`, редактор на
+  столе тоже получил «?»;
+- `npm run dupes` на пороге 2 + baseline 46 пар (`scripts/lib/css-dupes-baseline.json`) — список
+  пар и есть очередь на следующую чистку; `a11y` baseline перезаписан, 121 → 121 (палитра).
+
+Где остановились: 16 коммитов на ветке `refactor/component-dedupe` (wh11ed), всё зелёное (lint,
+2059 тестов, build, radii, dupes, a11y). Запись чейнджлога 2.7.2 лежит **незакоммиченной** в
+`src/data/changelog.js` — ждёт «ок» владельца на RU-текст. Дальше: ок → коммит → слить ветку в
+`main` → вечером `release-frontend` (катит владелец/по его слову).
