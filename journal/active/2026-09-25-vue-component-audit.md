@@ -125,3 +125,15 @@
 Решения, принятые по плану (владелец не возразил): поля настроек — вид `.seg` из мастера, DP везде,
 заметки в редакторе и на панели, не в мастере; акцент фракции — глобальный класс; брейкпойнт
 сетки карточек — тот, что чаще в style.css; FactionGroupedList, RosterUndoBar→AppToast — не делаем.
+
+Сделано (ветка `refactor/component-dedupe`, каждое — свой коммит; снимки против сборки `main`):
+- волна 1: п. 1 + 9 (`useRosterBuildActions`, `useRosterFactionData`) — баг Б починен, тест
+  кусается; п. 5 `RosterPointsTally` — баг А; п. 7 `.roster-group-head` + `groupLabel()`
+  (компонента не стал: разметка 6 строк, стиль нужен и вкладке правил вьюхи);
+- волна 2: `BaseModal` `subtitle`/`dense`/`#aside`, 12 диалогов (не 8) без ручной шапки, у всех
+  доступное имя; счётчики → глобальный `.mh-count`;
+- волна 3: `OnePageChapters` + `ChapterToc`, `useNavGroups`. **Найден баг В:** подменю Event
+  Companion на десктопе — подписи шли по позиции, Doubles сдвинул их: вкладка «FAQ» вела на
+  Doubles, у настоящей FAQ подписи не было. Починено (подписи по якорю). В чейнджлог.
+Обвязка снимков — `.shot.mjs`/`.shotdiff.mjs` в корне wh11ed (не в git), эталон — worktree
+`main` в scratchpad.
