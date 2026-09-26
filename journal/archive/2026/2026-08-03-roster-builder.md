@@ -40,6 +40,7 @@ is implemented and tested.
    accounting is right — with 2 Nobs, one taking a Power Klaw leaves "Kustom Choppa ×1". Either the
    reader is looking for a control for something that is a default, or the printed codex differs
    from GW's app data, which is a question for the user, not a fix.
+   **Closed 2026-09-26 by the owner's call:** not reproduced, the data matches appdata, no fix.
 
 1. **`RosterUnitRulesModal` doesn't overlay live modifiers.** It renders the unit's *base*
    datasheet only — a chosen enhancement, wargear pick, or Warlord trait that changes a
