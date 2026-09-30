@@ -1,4 +1,5 @@
-> **Статус:** активен
+> **Статус:** закрыт 2026-09-30
+> **Итог:** кодекс SM (data 963) и пять приложений орденов в проде с v2.7.7; всплывашки терминов SM, Legendary Proxies у SM и орденов, фиксы Raptors/Hellions/диспозиции — v2.7.8
 > **Репозитории:** wh11ed, wh40k-appdata
 > **Начато:** 2026-09-24
 > **Связано:** [Продвинутый учёт CP](2026-08-26-cp-tracking.md), скил `appdata-update`
@@ -162,3 +163,16 @@ appdata, проставить очки и выкатить.
 - **Стенд из worktree:** `node_modules` — симлинк на основной клон, Vite не отдаёт из него шрифты и
   иконки. Локальный `vite.config.worktree.js` (в `info/exclude`) добавляет путь в `server.fs.allow`;
   запуск `npx vite --config vite.config.worktree.js --port 5173`.
+
+- **Выкат 2026-09-30.** Ветка влита в main, **v2.7.7** выкачена (`6e9b721`), пост в ВК подготовлен. Следом
+  **v2.7.8** (`a8bfab6`, main = origin): подзаголовки `###` крупнее; всплывашки глоссария на жирных
+  терминах SM и орденов (`scripts/gloss-bold-terms.mjs`, `npm run gloss`, одна на термин в пределах
+  раздела `###`, шаг `--check` в `npm run sync`); Legendary Proxies Space Marines (парсер
+  `gen-faction-legends.mjs` принимает заголовки без жирного, 30 групп) и их копия у пяти орденов
+  (поле `of`, строки только с юнитами, которые орден может взять); фиксы: Close combat weapon у
+  Raptors одной строкой, условие «если модель вооружена X» из соседней группы (Hellions, Lieutenant,
+  Inquisitor, Death Company), диспозиция в мастере создания списка, типы манёвров в глоссарии.
+- **Хвосты:** хук `wh11ed/.git/hooks/pre-push` (Leak-Guard) удалить руками; appdata `7f90e96` не
+  запушен; worktree `~/Projects/wh11ed-sm-codex` больше не нужен (стенды 5173/5175 крутятся из него,
+  стенд из main — 5176). Выделение терминов у остальных фракций — отдельный журнал
+  [prose-term-emphasis](../../active/2026-09-15-prose-term-emphasis.md).
