@@ -40,3 +40,16 @@
 
 Попутно: в App Store 2026-10-02 08:14 UTC вышло приложение **2.7.2** («Codex: Space Marines is now
 available»), в Play пока 2.7.1 (из него данные 972). Возможен новый бамп данных.
+
+## APK из Google Play через эмулятор (2026-10-02)
+
+- APKPure зеркалит Play с задержкой → `wh40k-appdata/scripts/apk-emu.mjs`: эмулятор `playstore36`
+  (Android 36, Google Play, Google-аккаунт залогинен), владелец жмёт Update, скрипт тянет base.apk в
+  `sources/apk/…_vc<code>_play.apk`, сверяет Data Version с вкладки Profile, запускает ingest.
+- base.apk из Play == base.apk из xapk APKPure (2.7.1, sha256 совпал).
+- **В аккаунт GW владелец не входит никогда.** Приложение работает через Skip; Profile показывает
+  «App Version: v2.7.1 (146)», «Data Version: v972». Досылает ли GW данные только вошедшим — не
+  проверяемо; признак — Data Version на экране больше, чем в APK (скрипт предупредит).
+- Старый `~/Projects/whapp/pull-apk.sh` (26 августа) — предок, больше не нужен.
+- Проверено: `--force --no-ingest` после `pm clear` (сам прошёл Skip → Profile, 972/972); ожидание
+  без новой версии честно падает.
