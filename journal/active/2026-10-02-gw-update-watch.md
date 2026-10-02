@@ -29,11 +29,14 @@
 
 ## Где остановились
 
-Код закоммичен в wh11ed (`4b6e53a`), **не запушен**. Осталось (прод-шаги — только по «да»):
-1. Выпустить отдельный API-ключ Postbox (скоуп `yc.postbox.send`) для SA `wh11ed-postbox`.
-2. `gh secret set` в wh11ed: `POSTBOX_KEY_ID`, `POSTBOX_SECRET`, `WATCH_MAIL_TO`.
-3. Пуш main, ручной запуск workflow (baseline), второй запуск — «nothing new».
-4. Тестовое письмо: подменить состояние или дождаться реального обновления.
+**Работает с 2026-10-02.** Ключ Postbox `ajevepeq4bnhbslr2ob8` (скоуп `yc.postbox.send`, SA
+`wh11ed-postbox`, отдельный от ключа API) лежит только в секретах GitHub wh11ed: `POSTBOX_KEY_ID`,
+`POSTBOX_SECRET`, `WATCH_MAIL_TO` (= `FEEDBACK_MAIL_TO` из `wh11ed-api/deploy.env`). wh11ed запушен.
+Прогоны: baseline (run 37000600627), тестовое письмо «[WH Rules] GW: App Store 2.7.2» через откат
+состояния (37000679104) — ушло, повтор — «nothing new» (37000741649).
+
+Дальше: дождаться первого настоящего письма; если оно окажется шумным — правило в `watch-gw.py`.
+Закрыть журнал после первого реального срабатывания.
 
 Попутно: в App Store 2026-10-02 08:14 UTC вышло приложение **2.7.2** («Codex: Space Marines is now
 available»), в Play пока 2.7.1 (из него данные 972). Возможен новый бамп данных.
