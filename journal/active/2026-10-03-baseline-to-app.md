@@ -79,16 +79,31 @@ Cadian 28mm, остальное поштучно. После неё в baseline 
 Каждая фаза — свой коммит (или несколько), `npm run sync` + `data-gates` зелёные после каждой.
 RU идёт вместе с EN: правка текста правила = правка обоих, `npm run parity`.
 
-## Вопросы владельцу (до фазы 1)
+## Решения владельца (2026-10-03)
 
-1. BS у оружия с автопопаданием: показывать «N/A» (как сейчас) или «-», как в приложении?
-2. Объединённые одинаковые профили («OTHER MODELS»): оставить объединёнными или расписать каждую
-   модель, как приложение?
-3. Детачменты, которых нет в приложении (Blade of Ultramar, Ceramite Sentinels, Forgefather's Seekers,
-   Medusa's Wrath, Shadowmark Talon, Spearpoint Task Force; Deathwatch Support у орденов): откуда они
-   у нас и оставлять ли.
-4. Лишние способности The Red Terror и Thulia Ghuld — Legends/Pack или дрейф.
+- **BS у оружия с автопопаданием — «-», как в приложении.** Данные переписать с «N/A» на «-»
+  (224 строки baseline уйдут правкой данных, а не правилом сравнения).
+- **Профили отрядов — храним как в приложении** (каждая модель своим профилем), **выводим
+  схлопнуто чисто визуально**: одинаковые строки объединяет отрисовка, не данные.
+
+## Проверено по вопросам 3 и 4 (2026-10-03)
+
+- **Шесть детачментов SM «нет в приложении» — есть.** Blade of Ultramar, Shadowmark Talon,
+  Ceramite Sentinels, Forgefather's Seekers, Medusa's Wrath, Spearpoint Task Force лежат в бандлах
+  орденов appdata (`ultramarines`, `raven-guard`, `imperial-fists`, `salamanders`, `iron-hands`,
+  `white-scars`), а sync сравнивает `space-marines.js` только с `adeptus-astartes.json`. Пробел
+  сравнения: **их тексты не сверялись ни разу.** Ручная сверка 2026-10-03: стратагемы и улучшения
+  совпадают (разница — разметка), одно настоящее расхождение — у нас «Stormseers' Wisdom», в
+  приложении «Stormseer's Wisdom». → фаза 0: sync сравнивает детачменты SM и с бандлами орденов.
+- **Deathwatch Support** лежит в `deathwatch.json`; по `detachment_faction_keyword` приложение даёт
+  его Adeptus Astartes и всем орденам. У нас в конструкторе он есть у BT/BA/DA/SW
+  (`sharedDetachments`), **у обычных Space Marines — нет** (`roster/space-marines.js`). Похоже на
+  пробел конструктора — проверить в Battle Forge и чинить отдельно.
+- **The Red Terror «Serpentine Fiend», Thulia Ghuld «Cybernetic Augmentation» — наследие Wahapedia.**
+  Строки способностей в `tables/datasheet_ability.json` есть (текст «может проходить сквозь
+  terrain…»), но ни в одной версии с 895 они не привязаны к датащитам
+  (`datasheet_datasheet_ability`). На листе приложения их нет → убрать (EN+RU).
 
 ## Где остановились
 
-План написан, ничего не начато. Следующий шаг — ответы на вопросы выше, затем фаза 0.
+План утверждён, решения и проверки записаны выше. Следующий шаг — фаза 0.
