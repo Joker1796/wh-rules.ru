@@ -1,6 +1,7 @@
 # Данные к приложению GW: разбор sync-baseline, конец наследия Wahapedia
 
-> **Статус:** активен — сделано, ждём ответ владельца по Towering Example
+> **Статус:** закрыт
+> **Итог:** данные wh11ed сверены с приложением GW (wh11ed `4d8da76a`…`97058f1c`, не выкачено); baseline 732 → 236, у каждой записи причина, пустая валит `npm test`
 > **Репозитории:** wh11ed (данные, `scripts/sync-*.mjs`, `scripts/lib/sync-baseline.json`,
 > `scripts/lib/appdata-exceptions.mjs`)
 > **Начато:** 2026-10-03
@@ -149,11 +150,9 @@ Baseline: 732 → 336, без причины 331 (храповик в `scripts/l
 
 ## Открыто
 
-- **Towering Example у Chaos Titan Legions** (вопрос владельцу): в приложении у Titanicus Traitoris
-  нет фразы «Your army has the Take and Hold force disposition», но его же правило «Titanicus
-  Traitoris» велит пользоваться карточкой Adeptus Titanicus, где фраза есть. В baseline — как OPEN.
+- ~~Towering Example у Chaos Titan Legions~~ — владелец: как в приложении, фраза убрана (`97058f1c`).
 - Наша печатная врезка, примеры, данные приложения в тексте — остаются по решению (причины в baseline).
 
 ## Где остановились
 
-Все фазы сделаны и закоммичены (wh11ed, не запушено). Остался один вопрос владельцу — Towering Example. Журнал закрыть после ответа.
+Закрыто. Всё в wh11ed main, не запушено и не выкачено — едет с 2.7.13.
