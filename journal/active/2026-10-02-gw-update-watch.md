@@ -15,7 +15,7 @@
 
 ## Как устроено
 
-- `wh11ed/scripts/watch-gw.py` + `.github/workflows/gw-watch.yml` (коммит `4b6e53a`), раз в 3 часа.
+- `wh11ed/scripts/watch-gw.py` + `.github/workflows/gw-watch.yml` (коммит `4b6e53a`), раз в 3 часа; с 2026-10-06 раз в час (`605d1cf1`) — фактически GitHub запускает с опозданием на часы.
 - App Store — JSON `itunes.apple.com/lookup?bundleId=com.gamesworkshop.w40k`; Play — `[[["x.y.z"]]`
   со страницы магазина; APK скачивать руками (APKPure отвечает роботам 403).
 - MFM — сравниваются цены: прогон `scrape-mfm.py` (28 с) против `src/data/mfm`, в письме дифф.
