@@ -2,7 +2,7 @@
 > **Итог:** интро Legends и таблица Legendary Proxies у орков — в проде с v2.6.0; из чейнджлога на таблицу ведёт якорь `#legendary-proxies`
 > **Репозитории:** wh11ed
 > **Начато:** 2026-09-18
-> **Связано:** [хвосты после разбора жалоб](../paused/2026-09-13-player-report-tails.md)
+> **Связано:** [хвосты после разбора жалоб](2026-09-13-player-report-tails.md)
 
 # Проза Legends: «Warhammer Legends» и «Legendary Proxies»
 
