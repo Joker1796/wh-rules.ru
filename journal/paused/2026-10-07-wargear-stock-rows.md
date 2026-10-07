@@ -128,3 +128,14 @@ Deathwatch Terminator model»; Storm Bolter + Chainfist — без ошибки.
 релиз (`252d47ba`): `dropStockRemnants` в генераторе (один случай на всю игру), группы сержанта и
 терминаторов сложились в одну общую, миграция `useRosters` v10 переносит выборы, импорт даёт одну
 пару ×2. Чейнджлог дописан. Релиз впереди origin на 24, не запушен.
+
+## 2026-10-07 (поздно): репорт f2ba4023, Chaos Bikers
+
+«combi-bolter replaced with 1 combi-weapon, OR can be equipped with one of: flamer, meltagun, plasma
+gun» — добавки забирали combi-bolter. `linkAddOrSwap` в генераторе: добавки — связки, возвращающие
+болтер (как Cyclone + Storm Bolter); `stockLeft` их не вычитает. Влито в релиз (`38e9a1dc`), трекер
+подтянут (`157ad4a2`). Полный сбор инструкций с «or» (17 формулировок): Havocs (alt) и Strikemaster
+(solo) верны; Voidreavers, Cthonian Beserks, Einhyr Hearthguard, Hearthkyn ×2, Yaegirs ×2,
+Macrocytes ×2 — цепочки замен (Y из соседней группы), итог тот же, не баг; Chaos Rhino ×4 + TS Rhino
+— «add OR replace combi-bolter with havoc launcher», вариант «заменить» = выбросить бесплатное
+оружие, не моделируем сознательно. Правило «до молекул» записано в скил `feedback-triage` §2а.
