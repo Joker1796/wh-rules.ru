@@ -139,3 +139,19 @@ gun» — добавки забирали combi-bolter. `linkAddOrSwap` в ге�
 Macrocytes ×2 — цепочки замен (Y из соседней группы), итог тот же, не баг; Chaos Rhino ×4 + TS Rhino
 — «add OR replace combi-bolter with havoc launcher», вариант «заменить» = выбросить бесплатное
 оружие, не моделируем сознательно. Правило «до молекул» записано в скил `feedback-triage` §2а.
+
+## 2026-10-07 (ночь): аудит правил замен — всё исправлено в релизе
+
+Полная сверка «текст инструкции ↔ структура группы» по 1293 датащитам. Исправлено (ветка
+`fix/wargear-audit`, влита в релиз, `e1c7f84b`): Talos «one of their macro-scalpels» (rep + rc 1);
+Kratos — опечатка appdata «Lascannonss» прятала количества (2 записи в appdata-exceptions, реестр
+теперь применяется и генератором ростера; заодно ушли опечатки Catachan и Raptors из текстов
+ростера) + «this model's 2 X» при запасе 4 → rc 2; механизм `xpm` (лимит на модель по нескольким
+группам) — Tau Commanders ×3, Knight Destrier, Hive Tyrant, Aspiring Champion, Helbrute, Pioneers
+(+ три отдельные возможности вместо «одно из»), Krieg/GK/Spectrus (формально); `roster:data` теперь
+перегенерирует RU-тексты (были устаревшие: DWT перепутаны, Servitors без PACK_ERRATA). Урок 79.
+
+**Ждёт владельца:** Secutarii Peltasts — в PDF Faction Pack у Peltast Alpha нет arc lance
+(«galvanic caster; close combat weapon»), а замена «arc lance → archeotech pistol». Ошибка GW;
+сейчас пистолет добавляется, ничего не отдаётся. Решение — запись в PACK_ERRATA (что отдаёт Alpha).
+Импортёр `xpm` не читает — нарушение из импорта покажет валидатор.
