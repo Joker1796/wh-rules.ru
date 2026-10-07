@@ -151,7 +151,7 @@ Kratos — опечатка appdata «Lascannonss» прятала количе�
 (+ три отдельные возможности вместо «одно из»), Krieg/GK/Spectrus (формально); `roster:data` теперь
 перегенерирует RU-тексты (были устаревшие: DWT перепутаны, Servitors без PACK_ERRATA). Урок 79.
 
-**Ждёт владельца:** Secutarii Peltasts — в PDF Faction Pack у Peltast Alpha нет arc lance
+**Решено владельцем (PACK_ERRATA, `6c300fce`):** Secutarii Peltasts — в PDF Faction Pack у Peltast Alpha нет arc lance
 («galvanic caster; close combat weapon»), а замена «arc lance → archeotech pistol». Ошибка GW;
-сейчас пистолет добавляется, ничего не отдаётся. Решение — запись в PACK_ERRATA (что отдаёт Alpha).
+сейчас пистолет добавляется, ничего не отдаётся. Строка скопирована у Hoplites; Alpha отдаёт galvanic caster.
 Импортёр `xpm` не читает — нарушение из импорта покажет валидатор.
