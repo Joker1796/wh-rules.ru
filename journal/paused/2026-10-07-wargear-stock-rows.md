@@ -163,3 +163,6 @@ Kratos — опечатка appdata «Lascannonss» прятала количе�
 1 Boltgun and 1 Storm Shield»; `loadout_choice` для обоих профилей даёт в стрелковом слоте ровно
 Bolt Pistol | Plasma Pistol | Boltgun + Storm Shield — щита без boltgun и щита с пистолетом нет.
 Пистолет уходит законно. Отчёт удалён. Если повторится — это 10-я редакция или сборка миниатюры.
+Проверено и в приложении GW 2.7.1 (эмулятор): щит при сохранённом пистолете и щит вместо пистолета
+без boltgun — «Invalid wargear selected for Thunderwolf Cavalry model»; boltgun + щит вместо
+пистолета — без ошибки, 115 → 120 очков (наши данные: 115 и +5 за связку, совпадает).
