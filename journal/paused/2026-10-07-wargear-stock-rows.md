@@ -155,3 +155,11 @@ Kratos — опечатка appdata «Lascannonss» прятала количе�
 («galvanic caster; close combat weapon»), а замена «arc lance → archeotech pistol». Ошибка GW;
 сейчас пистолет добавляется, ничего не отдаётся. Строка скопирована у Hoplites; Alpha отдаёт galvanic caster.
 Импортёр `xpm` не читает — нарушение из импорта покажет валидатор.
+
+## Репорт d073dcf4 (2026-10-07) — Thunderwolf Cavalry, НЕ баг
+
+«Можно поставить только boltgun + storm shield, хотя на модель так не ставится; при 3× storm shield
+пистолет в карточке не отображается». Правило appdata (= приложение GW): «Bolt Pistol replaced with
+1 Boltgun and 1 Storm Shield»; `loadout_choice` для обоих профилей даёт в стрелковом слоте ровно
+Bolt Pistol | Plasma Pistol | Boltgun + Storm Shield — щита без boltgun и щита с пистолетом нет.
+Пистолет уходит законно. Отчёт удалён. Если повторится — это 10-я редакция или сборка миниатюры.
