@@ -45,6 +45,7 @@
 
 ## Архив 2026
 
+- [Хотфикс: один Support, кнопки размеров](archive/2026/2026-10-08-support-limit-hotfix.md) — Exalted Champion вторым саппортом, Accursed Cultists; выкачено тихо (BUMP=none), прод 2.7.18
 - [Снаряжение строкой в группах + релиз 2.7.18](archive/2026/2026-10-07-wargear-stock-rows.md) — в проде v2.7.18 (2026-10-08): снаряжение, PR Creego, Force Disposition, улучшения, «Кто возглавляет», цвета фракций; фикс deploy.sh на ветке `fix/deploy-ellipsis`
 - [Улучшения без носителя](archive/2026/2026-10-07-enh-nobody.md) — «11 никому» оказалось ошибкой пробы; настоящее — 11 Legends TITANIC без выбора CHARACTER в Steel Hammer, исправлено в 2.7.18
 - [Текст правил = приложение GW](archive/2026/2026-10-06-rule-text-app-parity.md) — в проде с v2.7.17: текст как в приложении, условия-данные в плашке «Действует также», лор в правилах прячется, гейт `ruletext`
