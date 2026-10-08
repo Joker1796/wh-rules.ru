@@ -93,8 +93,7 @@
   часть запрета (не видна, пока нет беты и серверной проверки). Пункт про бету из чейнджлога убран
   (решение владельца: сегодня не успеваем). Хотфикс 2.7.18 в чейнджлог не вписан (решение владельца).
 - Репорты `9b064d50`, `63d5ead2`, `e576d415` удалены из базы.
-- **Не сделано:** удаление слитых веток (классификатор заблокировал `git branch -d` / `push --delete`) —
-  владельцу: `release/2.7.19` локально и на GitHub, `feat/enhancement-weapon-row`,
+- Слитые ветки 2.7.19 удалены владельцем вручную (локально и `release/2.7.19` на GitHub): `release/2.7.19` локально и на GitHub, `feat/enhancement-weapon-row`,
   `feat/icons-own-copy-image`, `feat/release-shared-from-tracker`, `feat/roster-can-lead`,
   `feat/roster-play-this-list`, `fix/combat-doctrines-whole`, `fix/wargear-kept-and-double-giveup`.
 - **Бета ждёт:** api `feat/party-tracker-gen` (не выкачен), инфраструктура поддомена, `.env.deploy.beta`.
