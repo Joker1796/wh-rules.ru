@@ -59,3 +59,27 @@
 4. Влить релиз (с бампом) в ветку беты → `ENVFILE=.env.deploy.beta npm run deploy` из worktree.
 
 Без беты (если инфраструктура не успеет) релиз можно катить, убрав пункт про бету из чейнджлога: запрет gen 2 ничего не ломает.
+
+### 2026-10-08 — жалобы игрока (3 репорта, Deathwatch + SM), в релиз
+
+- **Приложение GW (эмулятор):** у Deathwatch Terminator модель с циклонкой НЕ может взять молот со
+  щитом («Invalid wargear selected»); 3 молота + 1 циклонка — законно.
+- **Корень:**
+  1. appdata потеряла примечание «штормболтер этой модели нельзя заменить» у кодексного DW Terminator
+     Squad → исключение `dw-terminator-cyclone-storm-bolter-kept`, датащит EN/RU поправлен руками.
+  2. Читатель Faction Pack'ов (`pack-roster.mjs`) примечание не читал вовсе: Deathwing Command Squad,
+     DW Terminators у Imperial Agents, Proteus — без метки. Общий `scripts/lib/keepClause.mjs`, гейт
+     «kept-item locks» (красный на старых данных: ровно эти 3).
+  3. Движок: предмет, возвращённый одним вариантом и забранный другой группой, оставался в карточке и
+     выгрузке (4 штормболтера вместо 1); группа на весь отряд списывала с профиля больше моделей, чем
+     в нём есть. Тесты красные на старом коде.
+- **Класс (51 пара в 13 отрядах):** после правок неверных чисел нет. Законность комбинаций у Grey
+  Knights Dreadnought, Captain with Jump Pack, Wolf Guard Pack Leader in Terminator Armour в приложении
+  не проверялась — по тексту разрешены, считаются теперь верно.
+- **Оружие улучшения в таблице** (Imperium’s Sword и ещё 5): `scripts/gen-enhancement-weapons.mjs` →
+  `src/data/enhancementWeapons.js`, плашка «улучшение» в `DatasheetCard`. Попутно гейт
+  `sync-enhancement-restrictions` читал только текст улучшения (а профили в extras) и не видел теги
+  (`groupBy` с функцией) — оба починены.
+- Коммиты: `f5bb478b` (+ merge `1c10505e`), `14f28d1c` (+ merge `59896bf6`); влиты в ветку беты.
+- Чейнджлог (не закоммичен) дополнен тремя пунктами. Репорты `9b064d50`, `63d5ead2`, `e576d415`
+  удалить после выката (`npm run feedback:delete`).
