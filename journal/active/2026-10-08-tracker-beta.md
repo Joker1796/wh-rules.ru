@@ -160,3 +160,9 @@
 - `.env.deploy.beta` в worktree беты (gitignored) с `CDN_RESOURCE_ID=bc8re23lfrjpfq2xmhy3`.
 - Релиз 2.7.20 собран на `release/2.7.20` (Deathwatch Support + справка + путь к установке + «сайт» в шапке + запись с разделом про бету); гейты зелёные (2674, смоук 78). Не выкачен.
 - API (`feat/party-tracker-gen` + `ALLOWED_ORIGINS` с бетой) — ждёт «да».
+
+### 2026-10-09 — api выкачен
+
+- Версия функции `d4ebhjk9pmmpku6gpn1k` (2026-10-09 11:15 UTC) с ветки `feat/party-tracker-gen` (`d8635f1`; не слита в main api и не запушена). Прошлая — `d4ep4j3f4coln3md7qso` (2026-09-27), откат — на неё.
+- `deploy.env` (локальный): `ALLOWED_ORIGINS=https://wh-rules.ru,https://wh11ed.ru,https://beta.wh-rules.ru`.
+- Смоук: /health ok, база (broadcast-фейк) 404; CORS отвечает бете её origin, чужому — wh-rules.ru; вход `?return=` бета → `back` в state-куке, чужой адрес — без `back`; join с `gen:2` и плохим кодом → 422 invalid_invite. Первые запросы попали в тёплый старый инстанс — через минуту новый.
