@@ -166,3 +166,10 @@
 - Версия функции `d4ebhjk9pmmpku6gpn1k` (2026-10-09 11:15 UTC) с ветки `feat/party-tracker-gen` (`d8635f1`; не слита в main api и не запушена). Прошлая — `d4ep4j3f4coln3md7qso` (2026-09-27), откат — на неё.
 - `deploy.env` (локальный): `ALLOWED_ORIGINS=https://wh-rules.ru,https://wh11ed.ru,https://beta.wh-rules.ru`.
 - Смоук: /health ok, база (broadcast-фейк) 404; CORS отвечает бете её origin, чужому — wh-rules.ru; вход `?return=` бета → `back` в state-куке, чужой адрес — без `back`; join с `gen:2` и плохим кодом → 422 invalid_invite. Первые запросы попали в тёплый старый инстанс — через минуту новый.
+
+### 2026-10-09 — релиз и бета сведены
+
+- `release/2.7.20` (wh11ed, локально): + `fix/editor-picked-detachments` (телефонный редактор не передавал выбранные детачменты в пикер с 2.7.15; правило `vue/no-undef-properties`), + `fix/device-wording` («устройство» в совместной игре, строки те же, что в бете), справка — «устройство», запись чейнджлога: бета со ссылкой `{link:…}`, «Приложение на телефоне», Deathwatch Support, «Конструктор на телефоне», справка.
+- Бета `feat/tracker-side-cards` = `8b740542`: туториал по раскладкам (`815e9f38`, агент), «устройство» (`061ec53d`), вкладка «Статистика» не обрезается (`ead24a07`), влит `release/2.7.20`; поиск заимствованного детачмента перенесён в `usePhaseRules.js`. Vitest 2857, lint чистый.
+- Файлы оформления для Claude Design: `sources/wh-rules-brand/` + `.zip` (README, current/, site-look/, promo-tracker/).
+- Дальше: совместная и парная на десктопе, 320px и EN глазами → сборка и выкат беты → смоук → релиз 2.7.20 по команде.
