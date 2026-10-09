@@ -173,3 +173,12 @@
 - Бета `feat/tracker-side-cards` = `8b740542`: туториал по раскладкам (`815e9f38`, агент), «устройство» (`061ec53d`), вкладка «Статистика» не обрезается (`ead24a07`), влит `release/2.7.20`; поиск заимствованного детачмента перенесён в `usePhaseRules.js`. Vitest 2857, lint чистый.
 - Файлы оформления для Claude Design: `sources/wh-rules-brand/` + `.zip` (README, current/, site-look/, promo-tracker/).
 - Дальше: совместная и парная на десктопе, 320px и EN глазами → сборка и выкат беты → смоук → релиз 2.7.20 по команде.
+
+### 2026-10-09 — вечер: вход, логотип, поиск, ветки сведены
+
+- Репорты в базе: `048f8c0f` (Deathwatch Support) и `17b68e8b` (Tempestus Scions не находятся: «темпестус сционов») — оба исправлены в 2.7.20, удалить после выката.
+- `release/2.7.20` = `8303b5b5`: + экран ошибки входа (`fix/login-error-shown`), + логотип WH RULES со шкалой (`feat/wh-rules-wordmark`), + поиск по словам в любом порядке и без падежных окончаний (`fix/search-word-order`, один матчер `queryWords/wordsIn` для каталога, сетки датащитов и Ctrl+K). Vitest 2687, lint, build зелёные.
+- Бета = `8553976a`, в ней весь релиз; `9ae8c2fb` — дубль `IS_BETA` после слияния (тесты молчали, lint поймал → после слияний гонять lint + build). Vitest 2868, lint, build зелёные.
+- api `feat/party-tracker-gen` = `88107bb` (не выкачен): неудачный вход → редирект на сайт с `?error=<reason>` + строка `[auth] … login failed` в логе. Ждёт «да».
+- Вход через Яндекс: `unauthorized_client` у одного игрока — отказ Яндекса аккаунту (детский/организации), у остальных вход работает (входы 11:53, 12:06, 12:07 UTC после выката api).
+- Оформление: `sources/wh-rules-brand-new.zip` (Claude Design) — иконки/заставки/og main брать; правки и свежие снимки — `sources/wh-rules-brand-fixes.zip`. Шрифт: `sources/SofiaSansExtraCondensed.ttf`.
