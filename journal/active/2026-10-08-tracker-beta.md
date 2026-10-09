@@ -151,3 +151,12 @@
 ### 2026-10-09 — main влит в бету
 
 `37af59e7`: 2.7.19 и оба тихих фикса в ветке беты. `ui.js` оставлен бетин (четыре текста настроек и девять подписей старого трекера бете не нужны, гейт подписей зелёный). Чейнджлог взят из main (прод, без раздела про бету — анонс беты писать заново при запуске). Vitest 2767 зелёный. Справка `fix/help-current` и путь к установке `feat/install-path` в бету не вливались — ждут решения по main.
+
+### 2026-10-09 — поддомен беты поднят
+
+- Бакет `beta.wh-rules.ru` (публичное чтение, website index/error = index.html).
+- CDN: группа источников `s3-beta-wh-rules-ru` (`544180527393523788`, источник `beta.wh-rules.ru.website.yandexcloud.net`), ресурс `bc8re23lfrjpfq2xmhy3` — опции как у прода (кэш default 86400, ignore query, slice, http→https, host header `beta.wh-rules.ru.storage.yandexcloud.net`, те же static headers, ignore cookie), сертификат CM `fpqhh8pf79h5r7keis0s` (`*.wh-rules.ru`).
+- DNS: `beta.wh-rules.ru. 600 CNAME 07d77627ab30bd15.topology.gslb.yccdn.ru.` в зоне `dns5p79pa7c87apgva42`.
+- `.env.deploy.beta` в worktree беты (gitignored) с `CDN_RESOURCE_ID=bc8re23lfrjpfq2xmhy3`.
+- Релиз 2.7.20 собран на `release/2.7.20` (Deathwatch Support + справка + путь к установке + «сайт» в шапке + запись с разделом про бету); гейты зелёные (2674, смоук 78). Не выкачен.
+- API (`feat/party-tracker-gen` + `ALLOWED_ORIGINS` с бетой) — ждёт «да».
