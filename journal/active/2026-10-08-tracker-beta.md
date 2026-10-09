@@ -182,3 +182,10 @@
 - api `feat/party-tracker-gen` = `88107bb` (не выкачен): неудачный вход → редирект на сайт с `?error=<reason>` + строка `[auth] … login failed` в логе. Ждёт «да».
 - Вход через Яндекс: `unauthorized_client` у одного игрока — отказ Яндекса аккаунту (детский/организации), у остальных вход работает (входы 11:53, 12:06, 12:07 UTC после выката api).
 - Оформление: `sources/wh-rules-brand-new.zip` (Claude Design) — иконки/заставки/og main брать; правки и свежие снимки — `sources/wh-rules-brand-fixes.zip`. Шрифт: `sources/SofiaSansExtraCondensed.ttf`.
+
+### 2026-10-09 — api `88107bb` выкачен
+
+- Версия функции `d4erflo4eco656qf5kem` (2026-10-09 14:11 UTC) с `feat/party-tracker-gen` = `88107bb` (не слита в main api, не запушена). Откат — на `d4ebhjk9pmmpku6gpn1k`. План сухого прогона = живой (env, 5 привязок Lockbox), тесты 104/104.
+- Смоук: /health ok; база — broadcast-фейк 404 `not_found`; `/auth/yandex/callback` без кода → 302 `…/auth-callback?error=missing_code_or_state`, `?error=unauthorized_client` → то же с причиной, код без куки → `?error=missing_state_cookie`. Раньше наши сбои отдавали голый JSON.
+- Прод-фронт 2.7.19 `?error=` не читает — вернёт на сайт молча; экран причины придёт с 2.7.20. Строку `[auth] … login failed` в логе не смотрел (`yc logging read` висит).
+- Сверка перед выкатом: `main` ⊂ `release/2.7.20` ⊂ бета (`a2f42c0b`); `changelog.js` в релизе и бете идентичен, к main только +запись 2.7.20. `feat/turn-flow` целиком в бете (cherry), удалить. Репорты в очереди — те же `048f8c0f`, `17b68e8b`.
