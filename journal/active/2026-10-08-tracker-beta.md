@@ -225,3 +225,4 @@
 ### 2026-10-10 — задача в 2.7.21: одиночный Support — ошибка
 
 - `release/2.7.21` = `538fc471` (от прода `df33a939`) + `fix/support-must-attach` (`a5deb3e0`): core 25.04 «Each support unit … must be attached», ошибка `supportUnattached`, `isSupportUnit()` = присоединяется только как Support. Сверено с appdata: 46 с Support + 7 Legends из паков + Ogryn Bodyguard/Nork Deddog (Loyal Protector «must join»); Cato Sicarius (Leader, Support только через свою способность) — не Support. Тесты красные на старом коде; vitest 2702, lint, build, smoke чистые. Запись 2.7.21 в чейнджлоге. Не выкачено, в бету не влито.
+- `release/2.7.21` = `2f963a13`: + `feat/navbar-grid` (`08e11f40`) — сетка бренда за логотипом в шапке, гаснет к 10rem (владелец смотрел на стенде). В чейнджлог не пишем (мелкая визуальная). Гейт `npm run dupes` красный ДО этих правок: 5 повторов CSS `StratPhaseGroups`/`StratFilterBar` ↔ `RosterViewView` — починить до выката 2.7.21.
