@@ -67,7 +67,9 @@ cd wh11ed && npm install && npm run dev                    # http://localhost:51
 Без бэкенда не будет входа, облачной синхронизации и совместной партии. По умолчанию фронт ходит
 на локальный API (`VITE_API_BASE_URL`, по умолчанию `http://localhost:8787`). В dev-сборке в меню ⚙
 есть тестовый вход без настоящего OAuth. Совместную партию на нескольких «телефонах» проверяют на
-docker-стенде API (`npm run stand` в `wh11ed-api`, подробности в его README).
+docker-стенде API (`npm run stand` в `wh11ed-api`). Стенд — весь бэкенд локально без облака и
+секретов: Postgres, API, поддельный вход Яндекса, почтовый ящик Mailpit и тестовые игроки (вход
+через Яндекс и по почте). Пошагово — [`wh11ed-api/DEVELOPMENT.md`](https://github.com/Joker1796/wh11ed-api/blob/main/DEVELOPMENT.md).
 
 `wh40k-appdata/`, `wh-glossary/` и `sources/` нужны только для сверки правил и для повторного
 извлечения текстов и картинок. На сборку они не влияют, см. [`sources/README.md`](sources/README.md).
