@@ -40,7 +40,34 @@ Sigismund запрещает только 1st Company Task Force, но един�
 «Invalid wargear selected for Overlord». Эррата Некронов меняла только саму способность сферы.
 Скорее всего, игрок помнит 10-ю редакцию. Оставляем.
 
+## 3f178b7e, ec930b47, 173bf8ee (12.10) — исправлены в `release/2.8.1`
+
+Shield Drone на каждой модели (`45c29a84`), два приказа у Command Rod / Ursula Creed (`2a714328`),
+Wrath of the Rock + Terminator Storm Force — ответ в чейнджлоге, тег TERMINATOR (`7d1e67eb`).
+
+## 5c639fb6 (13.10) — Talos: дробное число замен → наш баг, класс из 3 датащитов
+
+Пик `rc`/`cp` тратит долю модели (`pickShare`), а `swapRoom` отвечал в моделях: степпер упирался в
+1.5 и сохранял 1.5 ichor injector. Корень — единица измерения места; теперь место в целых пиках
+группы (`picksIn` в `swapRoom` и `stockBlocker`). Класс: Talos, Kratos (SM + 5 орденов), Decimator
+(«обе пушки» не закрывалась). Миграции нет (решение владельца): старый ростер получает
+предупреждение `wargearCountFraction`, чинится одним тапом. Гейт — `index.test.js` «room left for a
+swap», красный на старом коде.
+
+## 38dcc56a (13.10) — Deathwatch Terminators
+
+- Ancient in Terminator Armour не цеплялся к союзному Deathwatch Terminator Squad → наш баг: `leads`
+  называет цель без префикса, союзник в ростере `deathwatch:…`. 161 пара в 6 фракциях + 3 обратных
+  (Imperial Agents → Sanctifiers у Сороритас). `leadTo` сравнивает без префикса в обе стороны, через
+  него все 6 мест. Гейт «attach a Leader to every unit its datasheet names», красный на старом коде.
+- 3 plasma cannon + chainfist на тех же моделях → не баг: chainfist идёт взамен power fist **и**
+  storm bolter, а storm bolter ушёл под пушку. В GW-приложении не проверяли (по формулировке).
+
+Ветка `fix/roster-room-and-ally-leads` (`cf7a5afa`) влита в `release/2.8.1` (`9568ceb6`), чейнджлог
+2.8.1 дописан; **не запушено, не выкачено**.
+
 ## Где остановились
 
 - Выкат 2.8.1 — по команде владельца (в релизе также работа по качеству кода, см. 2026-10-12-code-quality.md).
-- Отчёты удалить из базы после релиза (0ba3a15b) / по слову владельца (838cbb9a, 356d5e92).
+- Отчёты удалить из базы после релиза 2.8.1: все восемь (0ba3a15b, 838cbb9a, 356d5e92, 3f178b7e, ec930b47, 173bf8ee, 5c639fb6, 38dcc56a).
+- Запушить wh11ed `release/2.8.1` и ветку фикса — по команде владельца.
