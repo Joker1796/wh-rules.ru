@@ -59,3 +59,14 @@ APK вытащен `apk-emu.mjs` (vc148), Data Version в профиле сов�
 - **Combat Patrol: каждый бокс — своя плитка и страница** (`id` бокса, старые адреса = слаг фракции);
   у Custodes три бокса. В работе.
 - Шрайк: EPIC HERO в 981 не вернули (снят в 963, страница изменений это показывает).
+
+**2026-10-14, вечер — документы GW от 14.10** (warhammer-community → Downloads, PDF в `sources/`):
+- Space Marines Printed Product Updates v1.1: Шрайку CHARACTER и EPIC HERO; приложение склеило строку
+  с Librarian in Terminator Armour и потеряло EPIC HERO → применено по PDF (исключение `unit-keyword`,
+  блок «Правки из документов GW» на странице изменений, предупреждение «второй Шрайк» удалено).
+- Custodes Printed Product Updates v1.0 и Event Companion 1.3 (у Wazbom «oval base») — совпадают
+  с приложением / внесено.
+- Шесть Faction Pack (Sororitas 1.4, AdMech 1.4, Agents 1.3, Votann 1.2, Tyranids 1.3, Aeldari 1.4):
+  правила = эррата 2.8.0; страницы Legends дословно те же, кроме FRAME у Repressor и Battle Sanctum.
+  Aquila Kill Team убран из пака Agents, но есть в приложении — остаётся.
+- Combat Patrol по боксам — сделан (`9d3ccb53`); вопросы агента к владельцу — в отчёте 14.10.
