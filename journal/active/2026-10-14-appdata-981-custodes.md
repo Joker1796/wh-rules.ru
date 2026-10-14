@@ -25,3 +25,22 @@ APK вытащен `apk-emu.mjs` (vc148), Data Version в профиле сов�
 - **Основные правила:** новые 01.02.12, 01.04.06; текст 09.07.01; FAQ/эррата фракций.
 
 ## Ход работы
+
+**2026-10-14, EN-проход** (wh11ed `2aabe2dc`, appdata `5cf9504`, оба не запушены):
+- MFM уже v1.6. Custodes — генераторами; 9 переименованных листов записаны в `datasheetRenames.json`
+  и в миграцию ростеров v12 (где лист разделили на два — туда, где стандартное снаряжение старого:
+  Agamatus → Gyrfalcon, Aquilon → with Solarite Power Gauntlets, Venatari → with Verutum Lances,
+  Adrasite/Pyrithite → Adrasite). Выбор снаряжения у Custodes и Kill Tank сбрасывается.
+- **Решения без владельца, проверить:** Death Company Captain — power fist A3 WS3+ в 981 считаю
+  опечаткой appdata (relic weapon того же листа A7 WS2+, у варианта с ранцем A5 WS2+), оставлено A6
+  WS2+ исключением. Bjorn the Fell-handed — эррата «Change BS to 2+» без названия оружия, применена к
+  Assault Cannon (единственное его оружие с 3+). Shield-Captain по appdata платит +25 за копьё со
+  щитом сверх 180 (возвращается при замене) — так appdata, не проверено в приложении.
+- Найдено попутно (уроки 88–92): цены MFM не находились из-за неразрывного дефиса (9 Custodes + 2
+  орочьих бомбера); «+N" R» не попадал в модификаторы (4 правила других фракций); вложенные армейские
+  правила не читались модификаторами; Noise Marines — appdata 4 sonic blaster на 5 моделей.
+- **Отложено, ждёт владельца:** два новых бокса Combat Patrol Custodes (Aquilan Talon, Aquilan Wing) —
+  у нас «один бокс на фракцию» (`/combat-patrol/<slug>`), нужна смена модели страницы. RU «было/стало»
+  на `/patches` — механизма нет, для 981 не сделано.
+- Ложные сигналы сверки, не из этого бампа: `sync-enh-bodyguards` не читает плашки `extras/`
+  (с 2026-10-06), поэтому 11 «MISSING».
