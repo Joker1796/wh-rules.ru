@@ -76,3 +76,5 @@ APK вытащен `apk-emu.mjs` (vc148), Data Version в профиле сов�
 **Сверка Legends (2026-10-14).** Приложение 981: Orks 12, Space Marines 28, Adeptus Custodes 7 — у нас поимённо так же; с 972 ничего не пропало, +7 Custodes. MFM: Sentry Pylon(s) — написание, Tactical Drones — без цены (известно). **Ciaphas Cain** — MFM не даёт цену с 963, лист в паке Astra Militarum v1.2 есть; владелец: **оставляем по паку**, очки прежние (70).
 
 **Выкачено 2026-10-14: v2.9.0** (`8fa5a750`, main перемотан, CDN сброшен). Ручной проверки не было — решение владельца. Хвосты: push appdata `5cf9504`; удалить репорт a24c2b8a (ssh); PDF цен 981 → Я.Диск + `patchDownloads.js`; `origin/release/2.9.0`; бета на 2.8.2.
+
+**Бета (2026-10-14):** влит `main` 2.9.0 + `release/2.9.1` (ссылки на PDF цен 981, Google Drive: первая ссылка — RU, вторая — EN, по порядку из чата — сверить). Бета = `fdff0bae`, выкачена (BUMP=none, v2.9.0), ветка беты на GitHub не запушена (+43). Починены 12 «unhandled rejection» в тестах трекера беты (`vi.dynamicImportSettled`). Прод 2.9.1 (ссылки на PDF) — по команде.
