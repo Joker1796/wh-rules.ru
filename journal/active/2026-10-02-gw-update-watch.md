@@ -77,3 +77,6 @@ available»), в Play пока 2.7.1 (из него данные 972). Возм�
   секретах GitHub), клон wh11ed для `scrape-mfm.py`/сравнения, письмо о сбое самого запуска.
   GitHub-workflow после переезда выключить, чтобы не было двух писем.
 - **Очередь:** после баг-репорта по Wracks (a24c2b8a).
+
+### 2026-10-14 — переезд на сервер
+App Store, MFM и WarCom — сервер Selectel, cron каждые 20 минут (`wh11ed-api/deploy/gw-watch.sh`, лог `journalctl -t wh-gw-watch`, состояние `/opt/wh-rules/watch/state.json`, почта через `scripts/notify.ts` API). Google Play — GitHub Actions (`--sources play`): `play.google.com` с сервера в России недоступен. Причина: GitHub запускал расписание на часы позже (2.8.0 — через 4,5 ч). С 2.9.1 сборщик MFM читает и цены снаряжения — их смена тоже придёт письмом.
