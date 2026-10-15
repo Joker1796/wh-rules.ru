@@ -68,3 +68,30 @@ Waaagh!, Blessings, Rituals и т. п. — их не трогаем.
    не только имя правила.
 5. **Гейт:** тест падает на правиле «выберите одно из», вариант которого нигде не отслеживается, и на
    `never`, чей `when` назван выбором, без записи в списке исключений с причиной.
+
+## Сделано (2026-10-15, бета `feat/tracker-side-cards`, не запушено)
+
+- `735f4d37` — эффект `op: 'state'`: только `cond` + `when`; switchesFor предлагает его той же
+  дорогой, что числовые, applyStatMods пропускает. Проверка формы — `rosterModifiers/index.test.js`.
+- `95e38100`, `b894f43e`, `97012ec3`, `6811891d` — заведены переключатели: Templar Vows,
+  Hyper-adaptations, Synaptic Imperatives, Murderous Agenda (Contracts), Noospheric Transference
+  (Halo Override + Override), Blood Tithe, Code Chivalric (Deeds, Qualities, Honoured), Harbingers
+  of Dread, Artillery Support, At All Costs, Deathwatch Mission Tactics (+Purgatus), Default to
+  Doctrine (Renegade Warband), Benedictions, Hagiomnifex, Idols of Khorne, Technosorcerous
+  Augmentations, Prey Adaptation, Adaptive Instincts, Gifted Commander, Martial Warrior,
+  Special-issue Optics, Dance of Death, Wrath of Khorne.
+- Ожили числа, закрытые `never`: Noospheric (+2" M / +1 T / Stealth), Code Chivalric Qualities,
+  Darkness (Stealth), выборы юнитов на фазу. Ошибка: Technosorcerous давал [ANTI-INFANTRY 3+] в любой
+  фазе стрельбы — теперь только выбранный вариант. Citation in Savagery длилась раунд вместо битвы.
+- Тест через реальную цепочку: `src/composables/ruleChoices.test.js`.
+
+**Отложено с причиной:**
+- Приказы из улучшений AM (Target Weak Spot, Move to the Shadows) и On My Signal: переключатель
+  должен быть на получателях приказа и только если улучшение есть в ростере — switchesFor не умеет
+  предлагать состояние по составу ростера.
+- Варианты внутри стратагем (Hardened Killers, Experimental Ammunition, Avowed Destruction): иначе
+  висят на каждой карточке до применения; нужно предлагать только при применённой стратагеме.
+- Bladeguard — у способности нет записи модификаторов (генератор её не предложил).
+
+**Дальше:** шаг 3 (класс B, «раз за битву»), шаг 4 (текст варианта по нажатию), шаг 5 (гейт), потом
+отложенное выше и ~393 непросмотренных `never`.
