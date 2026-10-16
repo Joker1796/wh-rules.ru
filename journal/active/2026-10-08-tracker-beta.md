@@ -346,3 +346,10 @@ Re-roll законно играется в разных фазах одного 
 - **Порядок выката:** wh11ed-api `chore/party-tick-2s` (кэш 2 с, лимит 2400/мин) → 2.9.3 → бета.
   Перед 2.9.3 — lint/build/smoke.
 **Дальше:** команда на выкат; шаг 3 выборов («раз за битву»); вопрос Михаилу про стратагемы.
+
+## 2026-10-16 (вечер)
+
+Прод ушёл вперёд: **2.9.3 и 2.9.4** выкачены, в бету не влиты. Перед пушем/выкатом беты — влить
+main: ожидаемые конфликты `src/data/rosterModifiers/necrons.js` и `conditions.js` (Technosorcerous,
+Citation — брать бетовские), плюс всё 2.9.4 (UpdateToast/useAppUpdate/launchGate, DatasheetWeaponTable,
+useKeywordPopover, App.vue плашки). Бета `feat/tracker-side-cards` — 28 коммитов, не запушена.
