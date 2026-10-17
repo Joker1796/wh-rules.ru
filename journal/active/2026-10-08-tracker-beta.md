@@ -353,3 +353,17 @@ Re-roll законно играется в разных фазах одного 
 main: ожидаемые конфликты `src/data/rosterModifiers/necrons.js` и `conditions.js` (Technosorcerous,
 Citation — брать бетовские), плюс всё 2.9.4 (UpdateToast/useAppUpdate/launchGate, DatasheetWeaponTable,
 useKeywordPopover, App.vue плашки). Бета `feat/tracker-side-cards` — 28 коммитов, не запушена.
+
+## 2026-10-17 — бета догнала прод и выкачена
+
+- В `feat/tracker-side-cards` влита `release/2.9.6` (всё 2.9.2–2.9.5 + фикс тире), merge `9b343fae`.
+  Конфликты: отчёт gen-roster-data (оба поля), rosterStatMods.test (оба блока), conditions.js и
+  rosterModifiers/necrons.js — бетовские (переключатели Technosorcerous вместо заглушки `never`),
+  items.js и ростеры фракций — перегенерированы. vitest 3266, lint, `--check`, parity, build, smoke — зелёные.
+- **typecheck на бете красный — 10 ошибок, долг беты** (`on`/`stat` в ModifierEffect необязательны
+  ради state-эффектов, rosterStatMods/rosterUnitCard считают их заданными); до слияния было 26.
+- **beta.wh-rules.ru = app 2.9.5 / notes 2.9.6** (`index-DpoAJ6Ik.js`, CDN сброшен, страницы 200).
+  Запись 2.9.6 видна на бете раньше прода; после выката 2.9.6 на прод — выкатить бету ещё раз.
+- Ветка беты **не запушена** (origin `c69565f6`, локально +89).
+
+**Дальше:** выкат 2.9.6 на прод → бета ещё раз; починить typecheck беты; push ветки — по команде.
