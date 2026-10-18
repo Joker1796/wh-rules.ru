@@ -130,3 +130,13 @@ Assigned Agents, Manifold Maladies, Canticles of the Omnissiah, Temple Relics, C
   Shieldbreaker, Pulsa Rokkit, Co-ordinated Eradication — цель). Гейт `onceRules.test.js` (красный на старых данных).
 - Тесты беты 3385/3385, typecheck 12 (как было), стенд беты на 127.0.0.1:5174.
 - Не сделано: чип на строке отряда в списке (только в карточке); RU-имена способностей на чипах (английские).
+
+## Доктрины из правил отряда (2026-10-18, ветка беты `feat/doctrine-rules` `50c93a61`, поверх `feat/once-per-battle`)
+Вопрос владельца: зачтётся ли армейская доктрина в юните и что с правилами «повторно» и «доп. доктрина».
+- Армейский выбор доходит до всех отрядов (SOFT_AUTO) — было и раньше; чип теперь «Выбор армии» (не переключатель).
+- Повтор доктрины армией (Gladius, Brethren, Spearpoint, Blade of Ultramar, Forgefather) — уже в бюджете счётчика армии.
+- Новое: `doctrineRules.js` читает фразы — все три всегда (Calgar, Guilliman, Logan), «in addition» всегда (Adept of
+  the Codex, Tactical Insight, Student of the Codex, Dante, Wrath of Angels), Death Company (assault, остальные запрещены),
+  временное «in addition» (Mephiston, Lion, Tome) — только лимит, Author of the Codex — лимит 2 всей армии.
+- Гейт: каждая фраза «doctrine is active» в шести фракциях прочитана (красный на слепом читателе), читатель в proseReaders.
+- Тесты беты 3392/3392, typecheck 12. Не сделано: в конструкторе (вне партии) доктрины из правил не читаются.
