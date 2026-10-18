@@ -95,3 +95,28 @@ Waaagh!, Blessings, Rituals и т. п. — их не трогаем.
 
 **Дальше:** шаг 3 (класс B, «раз за битву»), шаг 4 (текст варианта по нажатию), шаг 5 (гейт), потом
 отложенное выше и ~393 непросмотренных `never`.
+
+## Повторный анализ (2026-10-18)
+
+Шаги 1–2 живут только в бете (`feat/tracker-side-cards`, 343 коммита от main): в проде и в `release/2.9.7`
+нет ни `op: 'state'`, ни 71 из 179 условий. Срез беты (6597165b): 2046 записей, 55 эффектов-состояний в 14
+фракциях, 179 условий в ходу, `never` — 635 эффектов в 490 записях (было 674/505).
+
+**Остаток «похожих на выбор» `never` в бете — 139 правил:**
+- B. «раз за битву» — **70** (Finest Hour, Moment Shackle, Watcher in the Dark, Plasmacyte, Zealot, Overkill…).
+  Самый большой и однородный класс; шаг 3 плана.
+- G. вариант стратагемы — 5 в бете (Hardened Killers, Experimental Ammunition, Avowed Destruction, Desperate
+  Pledge, Lash of Guilt) + ~16 из 2.9.7 (сегодняшние списки «LETHAL или SUSTAINED»: Anathema Blademastery,
+  Mercy is Weakness, Relentless Assault, Vindictive Artillerists…). Нужен выбор только у применённой стратагемы.
+- H. выбранный дружественный отряд — 6 (Master of Mechanisms, Blessing of the Omnissiah, Forge’s Blessing,
+  Bearer of the Evanescent Ion, Soul Link, Hallucinogen Grenades) + отложенные приказы AM из улучшений.
+- C. выбранная вражеская цель — 11, D. выбранный объект — 6: честный `never` (карта цель не знает).
+- E. «instead»-варианты по состоянию/цели — 22, F. на атаку под уже включённым правилом — 19: не выборы.
+
+**По тексту правил «выберите одно из»** (только на наших страницах): 81, отслеживается 36, **нет — 45**:
+24 без записи вовсе, 6 с пустой, 15 только `never`. Среди них постоянные выборы (Path of the Warrior,
+Assigned Agents, Manifold Maladies, Canticles of the Omnissiah, Temple Relics, Choice Samples, Nurgle’s Gift)
+и разовые действия, где отслеживать нечего (Demolition Charges, Repair Barge, Floating Death) — разобрать.
+
+**Риск:** 2.9.7 добавляет ~18 записей-выборов с `never`; при слиянии в бету их надо перевести на состояния
+вместе с остальными, иначе бета их не покажет переключателями.
