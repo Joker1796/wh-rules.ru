@@ -175,4 +175,4 @@ appdata, проставить очки и выкатить.
 - **Хвосты:** хук `wh11ed/.git/hooks/pre-push` (Leak-Guard) удалить руками; appdata `7f90e96` не
   запушен; worktree `~/Projects/wh11ed-sm-codex` больше не нужен (стенды 5173/5175 крутятся из него,
   стенд из main — 5176). Выделение терминов у остальных фракций — отдельный журнал
-  [prose-term-emphasis](../../active/2026-09-15-prose-term-emphasis.md).
+  [prose-term-emphasis](2026-09-15-prose-term-emphasis.md).

@@ -1,4 +1,5 @@
-> **Статус:** активен
+> **Статус:** закрыт 2026-10-20
+> **Итог:** сторож работает: App Store, MFM и WarCom — сервер Selectel каждые 20 минут (wh11ed-api/deploy/gw-watch.sh), Google Play — GitHub Actions
 > **Репозитории:** wh11ed
 > **Начато:** 2026-10-02
 

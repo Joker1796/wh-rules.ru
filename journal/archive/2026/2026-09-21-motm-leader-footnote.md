@@ -56,4 +56,4 @@ Maelstrom» удалён. Core-правило Support само даёт боди
 
 Релиз v2.6.5 (`chore: release v2.6.5` = wh11ed `a133ed0`), смоук живого домена пройден, отчёт
 `caf57233` удалён. Строки «text differs» по главе Doubles в `npm run sync` — отдельный хвост:
-[Doubles в sync](../paused/2026-09-21-doubles-sync-text-differs.md).
+[Doubles в sync](2026-09-21-doubles-sync-text-differs.md).

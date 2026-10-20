@@ -2,7 +2,7 @@
 > **Итог:** 314 pack-листов в конструкторе (wh11ed, читатель `scripts/lib/pack-roster.mjs`), в проде с v2.6.1 (2026-09-19)
 > **Репозитории:** wh11ed
 > **Начато:** 2026-09-18
-> **Связано:** [Legends из Faction Pack'ов](../archive/2026/2026-09-18-legends-from-pack.md)
+> **Связано:** [Legends из Faction Pack'ов](2026-09-18-legends-from-pack.md)
 
 ## Суть
 

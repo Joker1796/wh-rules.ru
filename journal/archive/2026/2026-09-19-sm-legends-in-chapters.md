@@ -4,7 +4,7 @@
 > **Итог:** «да» — 65–72 из 76 Legends SM у каждого Ордена через `sharedUnitIds` (wh11ed `3f1fb83`), **в проде с v2.6.3 (2026-09-20)**; исключения и их основания — `wh11ed/src/data/CLAUDE.md` «SM-Chapter datasheet dedup»
 > **Репозитории:** wh11ed
 > **Начато:** 2026-09-19
-> **Связано:** [Legends в конструкторе](../archive/2026/2026-09-18-legends-in-roster-builder.md), [Legends из паков](../archive/2026/2026-09-18-legends-from-pack.md)
+> **Связано:** [Legends в конструкторе](2026-09-18-legends-in-roster-builder.md), [Legends из паков](2026-09-18-legends-from-pack.md)
 
 ## Суть
 
