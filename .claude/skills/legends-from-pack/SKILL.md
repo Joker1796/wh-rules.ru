@@ -108,6 +108,11 @@ npm run roster:texts-ru                                               # RU дл�
 Скил `data-gates`. Что здесь важно:
 
 - `npm run wtags` — тег на оружии без текста: добавить `wargearAbilities`/`rules` на сам датащит.
+- `npm run pack-text` — каждый лист против текста своего пака: строка характеристик, числа каждого
+  профиля подряд (на странице или на карточке Armoury рядом с именем), ключевые слова в строке
+  KEYWORDS, имена способностей. 2026-10-20 он нашёл у Death Company with Jump Packs способность
+  соседнего листа. Опечатка GW в паке — запись в `scripts/lib/pack-text-baseline.json` с причиной.
+- `npm run documents -- --write` — записать прочитанное издание пака для `/patches`.
 - `npm run sync` — записи с `source: 'faction-pack'` **не** считаются «extra in wh11ed»; строка
   `⟲ … is now in appdata — retire the faction-pack copy` — сигнал §7.
 - `npx vitest run src/data/datasheets` — тест покрытия RU **ждёт** pack-записи без RU-оверлея
