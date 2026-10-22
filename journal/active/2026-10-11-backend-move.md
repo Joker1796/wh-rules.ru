@@ -526,3 +526,5 @@ Timeweb «Безопасность и вход» (`timeweb.cloud/my/account/secu
 3. После выката 2.10.3 — владелец удаляет в GitHub wh11ed секреты `POSTBOX_KEY_ID`/`POSTBOX_SECRET` и ветку `watch-state`.
 
 **22.10, поздно:** сеть у `yc` прошла и без обхода IPv6; владелец вошёл `yc init` (окно Терминала), пробный `yc cdn cache purge` беты прошёл. Вопрос «сброс CDN без `yc`» снят. Осталось: биллинг.
+
+**23.10:** 2.10.3 в проде — workflow Play-слежения ушёл из `main`. Теперь владелец может удалить в GitHub wh11ed секреты `POSTBOX_KEY_ID`/`POSTBOX_SECRET` и ветку `watch-state`.
