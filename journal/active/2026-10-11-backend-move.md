@@ -493,6 +493,6 @@ Timeweb «Безопасность и вход» (`timeweb.cloud/my/account/secu
 
 Перед удалением проверено: NS обоих доменов — Selectel; `wh11ed.ru`, `www.wh11ed.ru`, `api.wh11ed.ru`, `api.wh-rules.ru` → 31.129.57.24; живой код API — Postgres + SMTP, YDB только в старых комментариях (`scripts/feedback-*.ts`, `src/config.ts`).
 
-Удалено через консоль (по «да» владельца): API-шлюз `wh11ed-api`, функция `wh11ed-api`, адрес Postbox `wh-rules.ru`. Дальше браузер остановил классификатор авто-режима.
+Удалено через консоль (по «да» владельца): API-шлюз `wh11ed-api`, функция `wh11ed-api`, адрес Postbox `wh-rules.ru`, CDN-ресурс `wh11ed.ru`, сертификаты `wh11ed` и `wh11ed-api` ×2, DNS-зоны `wh-rules.ru.` и `wh11ed.ru.`, SA `wh11ed-api-gateway`, `wh11ed-api-runtime`, `wh11ed-postbox`. После уборки `wh-rules.ru`, `beta`, `api.wh-rules.ru/health` — 200, `wh11ed.ru` — 301. Продление сертификата `wh-rules` не зависит от яндексовой зоны: CNAME `_acme-challenge.wh-rules.ru` → `…cm.yandexcloud.net` отдаёт Selectel.
 
-Осталось (порядок): CDN `wh11ed.ru` → бакеты `wh11ed.ru`/`www.wh11ed.ru` (владелец: стирание данных) → сертификаты `wh11ed`, `wh11ed-api` ×2 → DNS-зоны `wh-rules.ru.`/`wh11ed.ru.` → YDB `wh11ed-api` и Lockbox ×3 (владелец) → SA `wh11ed-postbox`, `wh11ed-api-runtime`, `wh11ed-api-gateway`. `wh11ed-deploy` и всё `wh-rules.ru`/`beta` — не трогать.
+**Осталось владельцу** (стирание данных): бакеты `wh11ed.ru`/`www.wh11ed.ru` (очистить и удалить), YDB `wh11ed-api`, Lockbox ×3. Проверить группу источников CDN `s3-wh11ed-ru` (могла остаться после удаления ресурса). Биллинг не смотрели. `wh11ed-deploy` и всё `wh-rules.ru`/`beta` — не трогать.
