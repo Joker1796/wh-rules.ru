@@ -112,6 +112,53 @@ app (Vue: views, components, use*-композаблы)  ──►  core  ◄─
   `data/armyTrackers`, `data/rosterModifiers/appliesWhile.js` → `utils/foldName.js`.
 - Вне `composables`/`utils` логики мало: `components/tracker/partySeats.js`, `helpText.js`, `roster/typeableCount.js`.
 
+## Шаг 1 — эталонные снимки (2026-10-26)
+
+`npm run golden` (wh11ed `3ba20b01`, `d26d39a3`): 30 фракций × каждый детачмент — ростер из всех юнитов
+с присоединёнными лидерами; очки, валидация, экспорт в 6 форматах, обратный импорт GW/WTC, карточка каждого
+юнита через `useRosterUnitCard`. Детерминированность проверена (два прогона побайтно равны). Снимки — **не в
+git** (77 МБ, решение владельца): эталон снят с кода `326e460f` (верх `release/2.10.6`), пересоздаётся
+`git switch --detach 326e460f && npm run golden:baseline`. ~8 мин в один поток.
+По пути: в стенде была гонка (первая карточка фракции снималась до загрузки) — ждём флаги готовности карточки.
+
+## Целевая раскладка ядра (черновик к шагу 3)
+
+«Чистый» ≠ «ядро»: из 61 чистого модуля часть — помощники интерфейса. В ядро идёт только предметная логика.
+
+- `core/roster/` — `rosterEngine`, `rosterValidation`, `rosterEnhEligible`, `rosterLimit`, `battleLimitFacts`,
+  `ownLimits`, `rosterExport`, `rosterImport`, `rosterHold`, `rosterCompanionRows`, `combatPatrolRoster`,
+  `combatPatrolBox`, `wargearInfo`, `weaponGroups`.
+- `core/rules/` (модификаторы и чтение правил) — `rosterModifiers`, `rosterStatMods`, `ruleTargets`,
+  `doctrineRules`, `abilityStatus`, `abilityDominance`, `rosterGameContext`, `stratagemPhases`, `variantPassage`,
+  `weaponTag`, `weaponTagQualifier`.
+- `core/game/` — `gameScoring`, `missionTiming`, `cpLedger`, `actionLog`, `gameLog`, `unitStatus`, `strictRules`,
+  `trackerGen`.
+- `core/shared/` — `foldName`, `roster.types.js` (типы).
+- **Остаются в приложении** (представление): `datasheetParts`, `rosterModNotes`, `columnChunks`, `blockColumnChunks`,
+  `anchors`, `segSlider`, `usePageMotion`, `revealAxis`, `rosterNameFit`, `sanitizeHtml`, `plural`, `tone`, `wordDiff`,
+  `copyTier`, `baseSize`, `datasheetGroups`, `keywordUnits`, `legendaryProxies`, `factionKeywordMarkup`, `unitLinkMarkup`.
+- **Адаптеры данных / инфраструктура приложения**: `rosterFactionRules` (загрузка прозы фракции), `trackerFactions`,
+  `seoMetaData`, `sideColors`, `gameSlices` (синхронизация).
+- `utils/capsKeywords` — помощник генератора (`scripts/gen-datasheet-index.mjs`), не трогаем.
+
+## Шаги 2–4 — ход работ (2026-10-26, ветка wh11ed `refactor/core-split`)
+
+- `c8b131c9` — пустой `src/core`, гейт границы (eslint: без Vue/данных/приложения, только встроенные глобалы JS
+  + WHATWG-кодеки; `boundary.test.js` ловит и динамический `import()`), `src/core/CLAUDE.md`.
+- `4d58d0b9`, `b6dba392`, `2d4c6ca1`, `d465b872` — перенос чистых модулей: `shared` (foldName, типы, slugify),
+  листья `roster`/`rules`/`game`, словарь условий (`conditions.js` — код движка, лежал в `data`).
+- Раскладка поправлена с владельцем: показ (`battleLimitFacts`, `ownLimits`, `wargearInfo`, `rosterHold`,
+  `rosterCompanionRows`) остаётся в приложении; `weaponGroups` → `core/rules`.
+- `7fb2ede0` — выдачи ключевых слов на юните: `gen-roster-data` пишет `grants` (133/133), Chapter — `sharedGrants`;
+  `grantedKeywordsFor(def, detachments)`. Проверено на всех данных: 134 выдачи союзникам все привязаны к детачменту
+  источника, который хозяин не выбирает; у заимствованных SM-юнитов выдач SM нет — результат не меняется.
+  Превью юнита в каталоге и редакторе теперь получает `def` (вариант 1 владельца: показывает и «кого вводит в игру»).
+- `38008c96` — `rosterEngine`, `rosterValidation` → `core/roster`.
+- `5cc8c417`, `0efffa1e` — диспозиции → `core/roster/dispositions.js`; импорт/экспорт получают справочник фракций
+  (`factionGroups`) аргументом и переехали в `core/roster`.
+- Эталон: побайтно совпал после каждого шага с изменением кода (30/30).
+- Уроки инструмента переноса: относительные и «от src/» пути, шаблонные `import(\`…${x}\`)` — правит сам.
+
 ## Ошибки, найденные по пути
 
 Правим сразу (разрешение владельца 26.10), каждая — отдельным коммитом с тестом и строкой здесь.
