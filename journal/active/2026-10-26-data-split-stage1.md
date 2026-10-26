@@ -95,6 +95,23 @@ app (Vue: views, components, use*-композаблы)  ──►  core  ◄─
 Каждый шаг — отдельная ветка/коммиты, вливаемые в релиз по готовности; шаги 3–6 можно выкатывать
 частями, раз видимых изменений нет.
 
+## Шаг 0 — карта (2026-10-26, ветка wh11ed `refactor/core-split` от `release/2.10.6`)
+
+Граф импортов `src/` (847 модулей, разовый скрипт, комментарии не считаются):
+- Логика (`composables` + `utils`, `.js`): 181 модуль. **Готовы в ядро — 61**: 46 без данных, 15 тянут данные
+  напрямую (`rosterEngine`, `rosterImport`, `rosterExport`, `rosterModifiers`, `ruleTargets`, `rosterFactionRules`,
+  `trackerFactions`, `seoMetaData`, `sideColors`, `gameSlices`, `battleLimitFacts`, `ownLimits`, `wargearInfo` и др.).
+  Среди готовых: `rosterValidation`, `rosterStatMods`, `rosterGameContext`, `gameScoring`, `doctrineRules`,
+  `abilityStatus`, `actionLog`.
+- Не готовы только из-за зависимостей (сами чистые): `gameStratagems`, `stratagemPlay`, `rosterGameLink`,
+  `rosterHandoff`, `rosterShare` (тянут `useRosters`/`useTracker`/`useBilingualMerge`), `gameStats`,
+  `markReconcile` (через хранилища), `rosterSummary` (`buildInfo`).
+- Смешанные: `useTracker` (2013 строк), `rosterUnitCard`, `useRosterDerived`, `useBilingualMerge`, `trackerLayout`.
+- **Обратные зависимости данные → логика:** `data/combatPatrolMissions.js` → `composables/combatPatrolBox.js`;
+  `data/{roster,rosterModifiers}/*`, `data/data.types.js` → `composables/roster.types.js` (типы);
+  `data/armyTrackers`, `data/rosterModifiers/appliesWhile.js` → `utils/foldName.js`.
+- Вне `composables`/`utils` логики мало: `components/tracker/partySeats.js`, `helpText.js`, `roster/typeableCount.js`.
+
 ## Ошибки, найденные по пути
 
 Правим сразу (разрешение владельца 26.10), каждая — отдельным коммитом с тестом и строкой здесь.
