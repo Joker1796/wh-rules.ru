@@ -61,3 +61,25 @@ rosterValidation 176 → 185/240. Полный прогон зелёный (262 
 - Остальное ядро по списку размера: rosterEngine (1795), rosterImport (975), rosterGameContext (405),
   rosterModifiers (292), rosterExport (254).
 - crapper — карта «сложно и мало тестов», без порога.
+
+## 27.10, вечер: влито в `release/2.10.7`
+
+Решение по Ynnari закрыто чатом и проверкой: запрет есть — в правилах датащитов Yvraine / The Visarch /
+The Yncarne («If your army includes YVRAINE, it cannot include any EPIC HERO units (excluding YNNARI
+units)»); я сначала проверил только таблицы детачмента и FAQ и ошибся. Отсюда класс: **ограничения
+состава армии, записанные в датащитах, конструктор не проверял вовсе** (6 правил: Ynnari-трио, Farsight
+↔ Ethereal, две версии Graves, Patriarch, Emperor’s Champion, Travelling Players с подъёмом до 3).
+
+wh11ed `release/2.10.7` (локально, не запушена; бета ещё на старой сборке `b6dc72e8`):
+`test/mutation` + `bea8fe9c` (EPIC HEROES) + `2b5e4e96` (состав армии: генератор читает все предложения
+о составе из правил/способностей датащитов и пунктов детачментов, либо шаблон «кто держит» с проверкой;
+каждая строка `keyword_restriction_group` должна сойтись; иначе `--check` красный; `armyExcludes`,
+`flags.one`, `unitCaps`, `charId`; тест `rosterComposition.test.js`, красный на старом коде; golden
+Aeldari/AM/T’au пересобран осознанно) + `0d296473` чейнджлог 2.10.7. Полный прогон 263/3749, lint,
+typecheck, `--check` зелёные. Урок — APPDATA-SYNC-LESSONS 111.
+
+Ветки `test/mutation`, `fix/epic-heroes-exclusion`, `fix/army-composition` во wh11ed влиты и удалены.
+wh11ed-api `test/mutation` (6 коммитов, 2 fix) — НЕ влита: у API нет релизных веток, ждёт команды на
+выкат бэка.
+
+Дальше: перевыложить бету 2.10.7 (владелец проверит), потом сайт; rosterStatMods по мутатору.
