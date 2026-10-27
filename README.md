@@ -71,6 +71,15 @@ docker-стенде API (`npm run stand` в `wh11ed-api`). Стенд — вес
 секретов: Postgres, API, поддельный вход Яндекса, почтовый ящик Mailpit и тестовые игроки (вход
 через Яндекс и по почте). Пошагово — [`wh11ed-api/DEVELOPMENT.md`](https://github.com/Joker1796/wh11ed-api/blob/main/DEVELOPMENT.md).
 
+Мутационное тестирование (`npm run mutate` во фронте и в API) берёт чужие инструменты из `tools/`.
+Папка не под гитом, клонировать один раз; нужен Python 3.11+:
+
+```bash
+mkdir -p tools && cd tools
+git clone https://github.com/unclebob/mutator && git clone https://github.com/unclebob/crapper
+for r in mutator crapper; do (cd $r && python3.14 -m venv .venv && .venv/bin/pip install -q -e .); done
+```
+
 `wh40k-appdata/`, `wh-glossary/` и `sources/` нужны только для сверки правил и для повторного
 извлечения текстов и картинок. На сборку они не влияют, см. [`sources/README.md`](sources/README.md).
 

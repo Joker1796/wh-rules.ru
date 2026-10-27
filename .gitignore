@@ -18,6 +18,8 @@
 !/sources/README.md
 
 # ─── Local tooling ───
+# Clones of outside tools (unclebob/mutator, unclebob/crapper), each with its own .venv. See README.md.
+/tools/
 .idea/
 .vscode/
 .claude/settings.local.json
