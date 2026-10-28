@@ -46,3 +46,28 @@ Rules и колода Chapter Approved (миссии, вторички, Force Di
 с Event Companion / Doubles (см. `journal/archive/2026/2026-09-16-doubles-chapter.md` как
 образец «дельта вместо пересказа»). Прежде чем начинать: решить про источник и про то, нужен
 ли трекеру Dominatus-режим (Agenda вместо primary, апгрейды на юнитах) или достаточно справочника.
+
+## 2026-10-28 — у владельца физическая колода: буклет правил
+Фото буклета (7 снимков, обложка + 6 разворотов) — `sources/dominatus/rules/`. Это первоисточник для
+**правил кампании** (буклета); тексты самих карт (Location, Briefing, Agenda, Upgrade) на фото нет.
+Сверка с тем, что записано выше:
+- Upgrade 35 = **11 Battle Honour + 9 Battle Skill + 15 Relic** (выше ошибочно «10 Battle Skill»).
+  Honour по фазам 5 / 5 / 1 (фаза 3 — Path to Conquest победителю). Relic — 5 уникальных на альянс.
+- Расписание по умолчанию: фазы First Encounters / Pitched Battles / Final Mission — 2 / 2 / 1 бой,
+  все Strike Force (буклет не пишет очки). Альянсы: Oppressors и Liberators обязательны, Raiders — опция.
+- Старт фазы: Warmaster бросает D6 и выбирает одну из Location этой фазы (по 3 на фазу), игроки
+  читают Briefing и собирают свои Agenda (по 3 на фазу на альянс, 9 всего).
+- Determine Mission: war zone rules локации на бой; если оба берут Agenda — Primary из колоды CA не
+  используется, после Force Disposition по таблице Briefing выходит Agenda с её Primary. Отказ
+  (Declining Agendas): Primary из колоды CA, очки по ней набирает только отказавшийся.
+- Declare Battle Formations: до 3 Upgrade на армию, каждый своему юниту, на юните не больше одного.
+- Determine Victor: выполненная Agenda → Agenda Achieved (держать не больше 3); фазы 1–2 —
+  победитель тянет Battle Honour, проигравший Battle Skill (ничья — оба Skill); с ≥1 Agenda Achieved
+  тянут 2 и оставляют 1. Дубликатов Upgrade не бывает, полученные остаются навсегда.
+- Конец фазы: I Take Control (больше Battle Honour за фазу → локация и её бонус до конца кампании;
+  ничья — Honour за всю кампанию, дальше Warmaster), II Ascendancy (больше Agenda Achieved, ничья —
+  все), III Relics (фазы 1–2: тянуть столько, сколько Agenda Achieved, оставить 1), IV Narrative
+  Outcome (обратная сторона Briefing по Narrative Points), V Discard Agenda Achieved прошлых фаз.
+- Modifying Dominatus: Warmaster свободно меняет правила (длиннее кампания, рост размера армий, смена
+  фракции/альянса).
+Решение «делать ли» по-прежнему за владельцем; для текстов карт канон — сама колода (фото карт).
