@@ -4,7 +4,7 @@
 
 ## Активные
 
-- [Экспорт в TTS через Yellowscribe](active/2026-10-30-yellowscribe-tts.md) — 30.10 взяли в работу: шаг 1 закрыт (yellowscribe.link выдал код); кнопка в окне экспорта + `rosterRos.js` + тест копией их разборщика — ветка `feat/yellowscribe-export` `5ab772b1` (worktree), не запушена; владелец смотрит на стенде 5174; нашёлся пропуск Decimator «Armoured feet»
+- [Экспорт в TTS через Yellowscribe](active/2026-10-30-yellowscribe-tts.md) — 30.10 взяли в работу: шаг 1 закрыт (yellowscribe.link выдал код); кнопка в окне экспорта + `rosterRos.js` + тест копией их разборщика — ветка `feat/yellowscribe-export` `5ab772b1` (worktree), не запушена; 30.10 `release/2.10.9` на бете (+ запоминание формата экспорта), ждём «катим»; нашёлся пропуск Decimator «Armoured feet»
 - [Колода Dominatus](active/2026-09-20-dominatus-deck.md) — 28.10 все три этапа сделаны: wh11ed `feat/dominatus` `e5661fd6` (справочник, режим трекера, кампании), api `feat/dominatus` `0783778` (`/campaigns`, миграция 006); не запушено, ждёт просмотра владельца; SQL-тест кампаний не прогнан (стенд)
 - [Мутационное тестирование](active/2026-10-27-mutation-testing.md) — 27.10: `npm run mutate` во фронте и API; фронт + EPIC HEROES + проверка состава армии (гейт в генераторе) в проде с 2.10.7; API `test/mutation` (2 fix) ждёт команды на выкат
 - [Обновление зависимостей](active/2026-10-22-dependency-upgrade.md) — сайт: 2.10.3 в проде (23.10); API шаг 1, Caddy 2.11.7 + перезагрузка, node-server 2 — в проде (23.10); zod 4 в проде (`e6fe3d7`, 23.10); Node — ждём 26 (ветка `chore/node-24` локально), TS 7 — ждём 7.1
