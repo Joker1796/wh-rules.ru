@@ -204,3 +204,8 @@ modifier}`): трекер может считать их без нового м�
   свои иконки» записано в components/CLAUDE.md и памяти.
 - Не в рамке пока: таблица Default Battle Schedule (в буклете заголовок таблицы тоже на плашке).
 - Всё ещё **ждём выбора вида меток карт** `?dv=a|b|c` и ответа про «улей Дэт-Майр».
+- Позже (фронт `f0018d8b`…`dcb0703a`): таблица Default Battle Schedule как в буклете (`table.plate`,
+  плотная шапка); плашки над рамками; эмблемы 5,5rem; значки колод (Agenda, Achieved, Briefing,
+  Location, Upgrade-шестерёнка = Battle Skill) обведены с фото `sources/dominatus/deck-icons.png`
+  (снимок выпрямлен сдвигом 0.083/−0.022) и стоят в углах карт и в списке «The Deck» (`iconList`).
+  Свои рисунки остались только у Battle Honour и Relic — их на фото нет.
